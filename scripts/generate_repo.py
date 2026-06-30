@@ -21,19 +21,20 @@ MODEL = "Blender + Seedance"
 MODEL_ID = "seedance-2.0-reference-to-video"
 CTA_ANCHOR = "#quick-start"
 RAW_MEDIA_BASE = f"https://github.com/{OWNER}/{REPO}/raw/main/"
+BANNER_SOURCE = ROOT / "images" / "banner.png"
 
 LANGS = [
-    ("en", "README.md", "English", "images/en.png"),
-    ("es", "README_es.md", "Español", "images/es.png"),
-    ("pt", "README_pt.md", "Português", "images/pt.png"),
-    ("ja", "README_ja.md", "日本語", "images/ja.png"),
-    ("ko", "README_ko.md", "한국어", "images/ko.png"),
-    ("de", "README_de.md", "Deutsch", "images/de.png"),
-    ("fr", "README_fr.md", "Français", "images/fr.png"),
-    ("tr", "README_tr.md", "Türkçe", "images/tr.png"),
-    ("zh-TW", "README_zh-TW.md", "繁體中文", "images/zh-tw.png"),
-    ("zh-CN", "README_zh-CN.md", "简体中文", "images/zh.png"),
-    ("ru", "README_ru.md", "Русский", "images/ru.png"),
+    ("en", "README.md", "English", "images/banner.png"),
+    ("es", "README_es.md", "Español", "images/banner.png"),
+    ("pt", "README_pt.md", "Português", "images/banner.png"),
+    ("ja", "README_ja.md", "日本語", "images/banner.png"),
+    ("ko", "README_ko.md", "한국어", "images/banner.png"),
+    ("de", "README_de.md", "Deutsch", "images/banner.png"),
+    ("fr", "README_fr.md", "Français", "images/banner.png"),
+    ("tr", "README_tr.md", "Türkçe", "images/banner.png"),
+    ("zh-TW", "README_zh-TW.md", "繁體中文", "images/banner.png"),
+    ("zh-CN", "README_zh-CN.md", "简体中文", "images/banner.png"),
+    ("ru", "README_ru.md", "Русский", "images/banner.png"),
 ]
 
 LANG_BADGES = """[![English](https://img.shields.io/badge/English-111111)](README.md)
@@ -1514,6 +1515,11 @@ def render_curated_md(records: list[dict]) -> str:
 
 def write_banner(path: Path, lang_name: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    if BANNER_SOURCE.exists():
+        if path.resolve() == BANNER_SOURCE.resolve():
+            return
+        Image.open(BANNER_SOURCE).convert("RGB").save(path)
+        return
     img = Image.new("RGB", (1520, 760), "#111827")
     draw = ImageDraw.Draw(img)
     for y in range(760):
@@ -1674,7 +1680,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 FILES = {[filename for _, filename, _, _ in LANGS]!r}
 EXPECTED_CASES = {len(records)}
-EXPECTED_IMAGES = {[img for _, _, _, img in LANGS]!r}
+EXPECTED_IMAGES = {sorted({img for _, _, _, img in LANGS})!r}
 EXPECTED_VIDEO_LABELS = {[label for label, _ in VIDEO_SOURCE_ROWS]!r}
 
 def fail(msg):
@@ -1710,7 +1716,7 @@ for img in EXPECTED_IMAGES:
     if not (ROOT / img).exists():
         fail(f"missing {{img}}")
 
-for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json"]:
+for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json", "images/banner.png"]:
     if not (ROOT / required).exists():
         fail(f"missing {{required}}")
 

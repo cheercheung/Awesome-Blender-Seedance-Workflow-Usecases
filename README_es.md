@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="#quick-start"><img src="images/es.png" alt="Blender + Seedance usecase repository banner" width="760"></a>
+<a href="#quick-start"><img src="images/banner.png" alt="Blender + Seedance usecase repository banner" width="760"></a>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE)
 [![Use on EvoLink](https://img.shields.io/badge/Use_on-EvoLink-black)](#quick-start)

@@ -6,7 +6,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 FILES = ['README.md', 'README_es.md', 'README_pt.md', 'README_ja.md', 'README_ko.md', 'README_de.md', 'README_fr.md', 'README_tr.md', 'README_zh-TW.md', 'README_zh-CN.md', 'README_ru.md']
 EXPECTED_CASES = 25
-EXPECTED_IMAGES = ['images/en.png', 'images/es.png', 'images/pt.png', 'images/ja.png', 'images/ko.png', 'images/de.png', 'images/fr.png', 'images/tr.png', 'images/zh-tw.png', 'images/zh.png', 'images/ru.png']
+EXPECTED_IMAGES = ['images/banner.png']
 EXPECTED_VIDEO_LABELS = ['case1', 'case2', 'case3', 'case4', 'case5', 'case6', 'case8', 'case9', 'case10', 'case11', 'case13', 'case14', 'case15', 'case16', 'case17', 'case18', 'case19', 'case20', 'case21', 'case22', 'case23', 'case24', 'case25', 'case26', 'case27', 'case28']
 
 def fail(msg):
@@ -42,7 +42,7 @@ for img in EXPECTED_IMAGES:
     if not (ROOT / img).exists():
         fail(f"missing {img}")
 
-for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json"]:
+for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json", "images/banner.png"]:
     if not (ROOT / required).exists():
         fail(f"missing {required}")
 
