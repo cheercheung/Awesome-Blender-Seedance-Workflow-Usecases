@@ -1496,24 +1496,6 @@ def render_readme(lang: str, filename: str, img_path: str, items: list[dict], re
     return "\n\n".join(parts)
 
 
-def render_curated_md(records: list[dict]) -> str:
-    lines = [
-        "# Blender + Seedance Curated Use Cases",
-        "",
-        f"Generated: {datetime.utcnow().replace(microsecond=0).isoformat()}Z",
-        f"Cases: {len(records)}",
-        "",
-        "| Case | Title | Source | Author | Category | Type | Date |",
-        "|---|---|---|---|---|---|---|",
-    ]
-    for record in records:
-        lines.append(
-            f"| {record['case']} | {record['title']} | [source]({record['url']}) | [{record['author']}]({record['author_url']}) | {record['category_name']} | {record['evidence_type']} | {record['date']} |"
-        )
-    lines.append("")
-    return "\n".join(lines)
-
-
 def write_banner(path: Path, lang_name: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if BANNER_SOURCE.exists():
@@ -1600,7 +1582,6 @@ def write_static_files(records: list[dict]) -> None:
             ## Source of Truth
 
             - Public curated source: `blender-seedance-usecase-curated.json`
-            - Human-readable curated source: `blender-seedance-usecase-curated.md`
             - Owner-provided input: `data/primary-use-case-posts.json`
             - Owner-provided video source map: `data/usecase-video-sources.json`
             - Manual originality audit: `docs/usecase-originality-audit.md`
@@ -1799,7 +1780,7 @@ for img in EXPECTED_IMAGES:
     if not (ROOT / img).exists():
         fail(f"missing {{img}}")
 
-for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", ".github/ISSUE_TEMPLATE/config.yml", ".github/ISSUE_TEMPLATE/use-case.yml", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json", "images/banner.png"]:
+for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", ".github/ISSUE_TEMPLATE/config.yml", ".github/ISSUE_TEMPLATE/use-case.yml", "blender-seedance-usecase-curated.json", "data/usecase-video-sources.json", "images/banner.png"]:
     if not (ROOT / required).exists():
         fail(f"missing {{required}}")
 
@@ -1873,7 +1854,6 @@ def main() -> None:
         "items": video_records,
     }
     (ROOT / "data" / "usecase-video-sources.json").write_text(json.dumps(video_sources, ensure_ascii=False, indent=2) + "\n")
-    (ROOT / "blender-seedance-usecase-curated.md").write_text(render_curated_md(records))
     write_static_files(records)
     write_verify_script(records)
 

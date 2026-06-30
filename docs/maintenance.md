@@ -3,7 +3,6 @@
 ## Source of Truth
 
 - Public curated source: `blender-seedance-usecase-curated.json`
-- Human-readable curated source: `blender-seedance-usecase-curated.md`
 - Owner-provided input: `data/primary-use-case-posts.json`
 - Owner-provided video source map: `data/usecase-video-sources.json`
 - Manual originality audit: `docs/usecase-originality-audit.md`
