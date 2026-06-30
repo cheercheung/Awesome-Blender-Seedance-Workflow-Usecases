@@ -13,7 +13,7 @@
 ## Current State
 
 - Selected public cases: 25
-- Owner-provided video rows: 25
+- Owner-provided video rows: 26
 - Candidate pool before audit: 35
 - Primary CTA: Quick Start workflow with Blender MCP, EvoLink skills, API key, and agent usage
 - Public push: approved to the existing target repository after local verification

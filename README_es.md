@@ -257,7 +257,9 @@ Tipo: Demo | Fecha: 2026-06-23
 
 - Notas de la fuente: The source moves the character through the scene while the camera follows, which makes it useful for handheld movement shots.
 - Audit status: kept after manual duplicate and originality review.
+- Vista previa de video:
 
+https://github.com/user-attachments/assets/598b62bd-246c-4699-8a5c-4735b536c380
 
 Tipo: Demo | Fecha: 2026-06-26
 

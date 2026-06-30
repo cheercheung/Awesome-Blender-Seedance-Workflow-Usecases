@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-06-30T09:25:25Z",
+    "generated_at": "2026-06-30T09:30:35Z",
     "source_workbook": "Book1.xlsx",
-    "source_rows": 25,
+    "source_rows": 26,
     "localization_policy": "README files render owner-provided GitHub attachment URLs as direct video previews and keep repository-local media files as backups."
   },
   "items": [
@@ -47,6 +47,13 @@
       "local_media": "media/case6.mp4",
       "public_case": 6,
       "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case8",
+      "attachment_url": "https://github.com/user-attachments/assets/598b62bd-246c-4699-8a5c-4735b536c380",
+      "local_media": null,
+      "public_case": 8,
+      "usage": "direct_preview_only"
     },
     {
       "case_label": "case9",

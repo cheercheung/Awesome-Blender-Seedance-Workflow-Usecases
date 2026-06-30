@@ -257,7 +257,9 @@ https://github.com/user-attachments/assets/8f92ed66-1c9f-4fc1-885e-71240add8f56
 
 - 來源筆記：说明在 Blender 中移動角色并做 handheld camera follow，Seedance 跟随运動和质感。
 - 複用角度：适合做手持跟拍、角色移動穿越空间的案例。
+- 影片預覽:
 
+https://github.com/user-attachments/assets/598b62bd-246c-4699-8a5c-4735b536c380
 
 類型: Demo | 日期: 2026-06-26
 

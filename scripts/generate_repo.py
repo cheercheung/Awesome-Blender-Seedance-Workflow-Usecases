@@ -294,6 +294,7 @@ VIDEO_SOURCE_ROWS = [
     ("case4", "https://github.com/user-attachments/assets/5b39d216-e84a-4372-83e6-a636bcf9d2fe"),
     ("case5", "https://github.com/user-attachments/assets/a6304e6a-d431-4cf7-9dd2-f664594e34c5"),
     ("case6", "https://github.com/user-attachments/assets/8f92ed66-1c9f-4fc1-885e-71240add8f56"),
+    ("case8", "https://github.com/user-attachments/assets/598b62bd-246c-4699-8a5c-4735b536c380"),
     ("case9", "https://github.com/user-attachments/assets/e92e6c44-3fef-4690-bce3-85de50ecf547"),
     ("case10", "https://github.com/user-attachments/assets/cff81cc4-0f72-49d8-881f-aee6ded2d5cf"),
     ("case11", "https://github.com/user-attachments/assets/247ccf17-4652-4c11-b8dc-efdba1567707"),
@@ -314,6 +315,7 @@ VIDEO_SOURCE_ROWS = [
     ("case27", "https://github.com/user-attachments/assets/71221c71-a7eb-428f-90e5-4a6111aaf890"),
     ("case28", "https://github.com/user-attachments/assets/3ab561b2-ef3e-47a5-b2c4-8378a521e491"),
 ]
+VIDEO_ATTACHMENT_BY_CASE_LABEL = dict(VIDEO_SOURCE_ROWS)
 VIDEO_ATTACHMENT_BY_LOCAL_MEDIA = {f"media/{label}.mp4": url for label, url in VIDEO_SOURCE_ROWS}
 
 CATEGORY_FOR_CASE = {
@@ -1184,9 +1186,8 @@ def record_notes(record: dict, lang: str) -> str:
     )
 
 
-def media_notes(links: list[str], lang: str) -> str:
-    if not links:
-        return ""
+def media_notes(record: dict, lang: str) -> str:
+    links = record.get("local_media", [])
     preview_label = {
         "en": "Video preview",
         "es": "Vista previa de video",
@@ -1201,13 +1202,17 @@ def media_notes(links: list[str], lang: str) -> str:
         "ru": "Предпросмотр видео",
     }[lang]
     video_urls = [VIDEO_ATTACHMENT_BY_LOCAL_MEDIA[path] for path in links if path in VIDEO_ATTACHMENT_BY_LOCAL_MEDIA]
+    case_url = VIDEO_ATTACHMENT_BY_CASE_LABEL.get(f"case{record['case']}")
+    if case_url and case_url not in video_urls:
+        video_urls.append(case_url)
+    if not video_urls:
+        return ""
     parts = []
-    if video_urls:
-        parts.append(f"- {preview_label}:")
+    parts.append(f"- {preview_label}:")
+    parts.append("")
+    for url in video_urls:
+        parts.append(url)
         parts.append("")
-        for url in video_urls:
-            parts.append(url)
-            parts.append("")
     return "\n".join(parts).rstrip()
 
 
@@ -1254,18 +1259,22 @@ def curated_records(items: list[dict]) -> list[dict]:
 
 def video_source_records(records: list[dict]) -> list[dict]:
     media_to_case = {}
+    public_case_labels = {record["case"] for record in records}
     for record in records:
         for rel in record.get("local_media", []):
             media_to_case[rel] = record["case"]
     out = []
     for label, attachment_url in VIDEO_SOURCE_ROWS:
         case_number = int(label.removeprefix("case"))
-        local_media = f"media/{label}.mp4"
-        public_case = media_to_case.get(local_media)
+        local_media_candidate = f"media/{label}.mp4"
+        local_media = local_media_candidate if (ROOT / local_media_candidate).exists() else None
+        public_case = media_to_case.get(local_media_candidate)
+        if public_case is None and case_number in public_case_labels:
+            public_case = case_number
         if public_case == case_number:
-            usage = "standalone_public_case"
+            usage = "standalone_public_case" if local_media else "direct_preview_only"
         elif public_case is None:
-            usage = "downloaded_not_linked"
+            usage = "source_video_only"
         else:
             usage = "merged_or_deduplicated_media"
         out.append(
@@ -1438,7 +1447,7 @@ def render_cases(labels: dict, items: list[dict], lang: str) -> str:
                     f"**{record_takeaway(rec, lang)}**",
                     "",
                     record_notes(rec, lang),
-                    media_notes(rec.get("local_media", []), lang),
+                    media_notes(rec, lang),
                     "",
                     f"{labels['type']}: {rec['evidence_type']} | {labels['date']}: {rec['date']}",
                     "",
@@ -1715,7 +1724,7 @@ if len(set(video_labels)) != len(video_labels):
     fail("video source labels contain duplicates")
 for row in video_sources["items"]:
     rel = row.get("local_media")
-    if not rel or not (ROOT / rel).exists():
+    if rel is not None and not (ROOT / rel).exists():
         fail(f"missing video source local media {{rel}}")
     if not row.get("attachment_url", "").startswith("https://github.com/user-attachments/assets/"):
         fail(f"unexpected attachment URL for {{row.get('case_label')}}")
