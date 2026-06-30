@@ -1,0 +1,61 @@
+name: Submit a Blender + Seedance use case
+description: Suggest a source-backed workflow, demo, tutorial, integration, benchmark, or limitation case.
+title: "[Use Case]: "
+labels:
+  - use-case
+  - needs-review
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping expand the curated Blender + Seedance use case library. Please submit only public, source-backed cases.
+  - type: input
+    id: source_url
+    attributes:
+      label: Source URL
+      description: Link to the original public post, demo, tutorial, or repository.
+      placeholder: https://x.com/...
+    validations:
+      required: true
+  - type: input
+    id: creator
+    attributes:
+      label: Creator / author
+      description: Public creator handle or profile URL.
+      placeholder: "@creator"
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence_type
+    attributes:
+      label: Evidence type
+      options:
+        - Demo
+        - Tutorial
+        - Integration
+        - Evaluation
+        - Benchmark
+        - Limit
+    validations:
+      required: true
+  - type: textarea
+    id: workflow_summary
+    attributes:
+      label: What workflow does this show?
+      description: Summarize the Blender + Seedance workflow and why it is useful.
+    validations:
+      required: true
+  - type: textarea
+    id: media
+    attributes:
+      label: Media links
+      description: Add direct video/image links if available. GitHub attachment video URLs are preferred when they render in README.
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes for review
+      description: Mention duplicates, attribution uncertainty, missing dates, or anything that needs manual review.
+    validations:
+      required: false

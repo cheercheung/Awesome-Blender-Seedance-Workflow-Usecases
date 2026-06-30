@@ -1476,7 +1476,7 @@ This repository was inspired by creators who publicly shared Blender + Seedance 
 
 *We cannot guarantee that every case is attributed to the original creator. If anything needs to be corrected, please contact us and we will update it.*
 
-If you have more interesting usage cases to share, open an issue or pull request and help expand the EvoLink usecase library.
+Have a Blender + Seedance workflow to add? [Open a use case issue](https://github.com/{OWNER}/{REPO}/issues/new?template=use-case.yml) with the [issue template file](.github/ISSUE_TEMPLATE/use-case.yml), or open a pull request with the [PR template](.github/PULL_REQUEST_TEMPLATE.md).
 
 [![Star History Chart](https://api.star-history.com/svg?repos={OWNER}/{REPO}&type=Date)](https://www.star-history.com/#{OWNER}/{REPO}&Date)"""
 
@@ -1670,6 +1670,86 @@ def write_static_files(records: list[dict]) -> None:
             """
         )
     )
+    issue_dir = ROOT / ".github" / "ISSUE_TEMPLATE"
+    issue_dir.mkdir(parents=True, exist_ok=True)
+    (issue_dir / "config.yml").write_text(
+        textwrap.dedent(
+            """\
+            blank_issues_enabled: false
+            contact_links:
+              - name: EvoLink
+                url: https://evolink.ai
+                about: Use EvoLink for model access, API keys, and agent workflows.
+            """
+        )
+    )
+    (issue_dir / "use-case.yml").write_text(
+        textwrap.dedent(
+            """\
+            name: Submit a Blender + Seedance use case
+            description: Suggest a source-backed workflow, demo, tutorial, integration, benchmark, or limitation case.
+            title: "[Use Case]: "
+            labels:
+              - use-case
+              - needs-review
+            body:
+              - type: markdown
+                attributes:
+                  value: |
+                    Thanks for helping expand the curated Blender + Seedance use case library. Please submit only public, source-backed cases.
+              - type: input
+                id: source_url
+                attributes:
+                  label: Source URL
+                  description: Link to the original public post, demo, tutorial, or repository.
+                  placeholder: https://x.com/...
+                validations:
+                  required: true
+              - type: input
+                id: creator
+                attributes:
+                  label: Creator / author
+                  description: Public creator handle or profile URL.
+                  placeholder: "@creator"
+                validations:
+                  required: true
+              - type: dropdown
+                id: evidence_type
+                attributes:
+                  label: Evidence type
+                  options:
+                    - Demo
+                    - Tutorial
+                    - Integration
+                    - Evaluation
+                    - Benchmark
+                    - Limit
+                validations:
+                  required: true
+              - type: textarea
+                id: workflow_summary
+                attributes:
+                  label: What workflow does this show?
+                  description: Summarize the Blender + Seedance workflow and why it is useful.
+                validations:
+                  required: true
+              - type: textarea
+                id: media
+                attributes:
+                  label: Media links
+                  description: Add direct video/image links if available. GitHub attachment video URLs are preferred when they render in README.
+                validations:
+                  required: false
+              - type: textarea
+                id: notes
+                attributes:
+                  label: Notes for review
+                  description: Mention duplicates, attribution uncertainty, missing dates, or anything that needs manual review.
+                validations:
+                  required: false
+            """
+        )
+    )
 
 
 def write_verify_script(records: list[dict]) -> None:
@@ -1712,12 +1792,14 @@ for file in FILES:
         fail(f"{{file}} missing required usecase sections")
     if text.count("| Date: ") + text.count("| Fecha: ") + text.count("| Data: ") + text.count("| Datum: ") + text.count("| Tarih: ") + text.count("| 日期: ") + text.count("| Дата: ") < EXPECTED_CASES:
         fail(f"{{file}} missing Type/Date metadata lines")
+    if ".github/ISSUE_TEMPLATE/use-case.yml" not in text or ".github/PULL_REQUEST_TEMPLATE.md" not in text:
+        fail(f"{{file}} missing issue or PR template links")
 
 for img in EXPECTED_IMAGES:
     if not (ROOT / img).exists():
         fail(f"missing {{img}}")
 
-for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json", "images/banner.png"]:
+for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", ".github/ISSUE_TEMPLATE/config.yml", ".github/ISSUE_TEMPLATE/use-case.yml", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json", "images/banner.png"]:
     if not (ROOT / required).exists():
         fail(f"missing {{required}}")
 

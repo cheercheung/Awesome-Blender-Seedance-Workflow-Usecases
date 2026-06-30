@@ -37,12 +37,14 @@ for file in FILES:
         fail(f"{file} missing required usecase sections")
     if text.count("| Date: ") + text.count("| Fecha: ") + text.count("| Data: ") + text.count("| Datum: ") + text.count("| Tarih: ") + text.count("| 日期: ") + text.count("| Дата: ") < EXPECTED_CASES:
         fail(f"{file} missing Type/Date metadata lines")
+    if ".github/ISSUE_TEMPLATE/use-case.yml" not in text or ".github/PULL_REQUEST_TEMPLATE.md" not in text:
+        fail(f"{file} missing issue or PR template links")
 
 for img in EXPECTED_IMAGES:
     if not (ROOT / img).exists():
         fail(f"missing {img}")
 
-for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json", "images/banner.png"]:
+for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", ".github/ISSUE_TEMPLATE/config.yml", ".github/ISSUE_TEMPLATE/use-case.yml", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json", "images/banner.png"]:
     if not (ROOT / required).exists():
         fail(f"missing {required}")
 
