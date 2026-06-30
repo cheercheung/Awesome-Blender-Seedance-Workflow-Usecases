@@ -33,10 +33,10 @@ Quick Start ниже показывает setup Blender MCP, установку 
 
 ## 📊 Overview
 
-- **20 отобранных кейсов Blender + Seedance** из публичных постов авторов в датасете владельца.
+- **25 отобранных кейсов Blender + Seedance** из публичных постов авторов в датасете владельца.
 - Охватывает управление камерой, Blender previs, блокинг нескольких персонажей, постановку экшена, Blender MCP, blockout с Codex/Claude, FBX/Mixamo references, ComfyUI/style transfer и известные ограничения.
 - Каждый кейс содержит исходный пост, автора, краткий вывод, тип доказательства и дату публикации.
-- Публичный список был сокращен с 35 кандидатов до 20 основных кейсов после ручной проверки дубликатов и оригинальности.
+- Публичный список пересобран из аудита 35 кандидатов и новых ссылок в 25 основных кейсов.
 - Этот repo помогает изучить реальные workflows перед переходом к финальной landing page EvoLink MCP + skill.
 
 > [!NOTE]
@@ -85,12 +85,12 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 | Раздел | Кейсы |
 |---|---|
-| [🎥 Camera Control & Previs / Управление камерой и превиз](#camera-control-previs) | Case 1-5 |
-| [🎬 Character & Action Blocking / Блокинг персонажей и экшена](#character-action-blocking) | Case 6-9 |
-| [🤖 Agentic Blender MCP / Агентный Blender MCP](#agentic-blender-mcp) | Case 10-11 |
-| [🧩 Reference, Prompt & Multi-Input Mapping / Референсы, промпты и multi-input mapping](#reference-prompt-multi-input-mapping) | Case 12-14 |
-| [🛠️ Production Pipelines & Toolchains / Производственные пайплайны и инструменты](#production-pipelines-toolchains) | Case 15-18 |
-| [🧪 Limits, Tests & Troubleshooting / Ограничения, тесты и разбор ошибок](#limits-tests-troubleshooting) | Case 19-20 |
+| [🎥 Camera Control & Previs / Управление камерой и превиз](#camera-control-previs) | Case 1, 2, 3, 4, 5 |
+| [🎬 Character & Action Blocking / Блокинг персонажей и экшена](#character-action-blocking) | Case 6, 8, 9, 21 |
+| [🤖 Agentic Blender MCP / Агентный Blender MCP](#agentic-blender-mcp) | Case 10, 11, 22 |
+| [🧩 Reference, Prompt & Multi-Input Mapping / Референсы, промпты и multi-input mapping](#reference-prompt-multi-input-mapping) | Case 13, 14, 23, 24, 26, 27 |
+| [🛠️ Production Pipelines & Toolchains / Производственные пайплайны и инструменты](#production-pipelines-toolchains) | Case 15, 16, 17, 18 |
+| [🧪 Limits, Tests & Troubleshooting / Ограничения, тесты и разбор ошибок](#limits-tests-troubleshooting) | Case 20, 25, 28 |
 | [🙏 Благодарности](#acknowledge) | Credits and correction policy |
 
 <a id="camera-control-previs"></a>
@@ -98,7 +98,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 | Кейс | Что показывает | Тип |
 |---|---|---|
-| [Blender Blockout as Seedance Motion Reference](#case-1) | A complete direction workflow: create a start frame, block the shot with gray boxes in Blender, animate only the camera and timing, then use that blockout as Seedance's motion reference. | Demo |
+| [Blender Blockout as Seedance Motion Reference](#case-1) | A merged direction workflow: use the full gray-box method from the original case, then push it into action-previs timing, speed, shake, and spatial choreography before Seedance generation. | Demo |
 | [Camera Blocking with Midjourney Start Frame](#case-2) | A compact precision-camera recipe: Blender supplies the camera move, Midjourney supplies the start frame, and Seedance follows the motion reference. | Demo |
 | [ComfyUI Camera Control with Blender Previs](#case-3) | A ComfyUI control case where Blender previz is combined with separate upright and upside-down reference frames to test motion adherence. | Demo |
 | [Viewport Preview to Realistic Start Frame](#case-4) | A short viewport-preview tutorial: block out the scene, export the preview, turn the first frame realistic, then provide both references to Seedance. | Demo |
@@ -110,9 +110,9 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 | Кейс | Что показывает | Тип |
 |---|---|---|
 | [Multi-Character Dialogue with Matched Poses](#case-6) | A dialogue-shot workflow where Blender is used to match character poses and camera motion before Seedance generates the performed scene. | Demo |
-| [Action Choreography from Rough Blender Timing](#case-7) | An action-previs case showing how rough timing, speed, camera shake, and spatial choreography can be planned in Blender before Seedance renders the shot. | Demo |
 | [Handheld Follow Camera through Space](#case-8) | A handheld-follow case where Blender controls how a character travels through space and Seedance carries the gritty camera move into the final video. | Demo |
 | [Camera and Character Blocking for Tactical Action](#case-9) | A tactical blocking case where Blender directs camera orbit, lens choice, cover positions, gunfire beats, and character movement before generation. | Demo |
+| [Ambush Scene Previs Beyond a Simple Camera Move](#case-21) | An ambush-scene case showing how Blender previs can solve staging, timing, and camera movement before Seedance generates the shot. | Demo |
 
 <a id="agentic-blender-mcp"></a>
 ### 🤖 Agentic Blender MCP / Агентный Blender MCP
@@ -121,15 +121,19 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 |---|---|---|
 | [Codex + Blender MCP Reference Video Workflow](#case-10) | An agentic Blender MCP case where Codex builds a simple 3D market, cat motion, camera framing, and an MP4 reference for Seedance. | Integration |
 | [Codex-Built Architecture and Camera Work](#case-11) | A Codex-assisted beginner case where architecture and camera work are generated in Blender and then tested as Seedance reference motion. | Integration |
+| [Claude-Built Blender MCP Previs in Minutes](#case-22) | A fast agentic-previs case where Claude uses Blender MCP to build a shot reference in two to three minutes. | Integration |
 
 <a id="reference-prompt-multi-input-mapping"></a>
 ### 🧩 Reference, Prompt & Multi-Input Mapping / Референсы, промпты и multi-input mapping
 
 | Кейс | Что показывает | Тип |
 |---|---|---|
-| [Reproducible Seedance Prompt with Blender Reference](#case-12) | A reproducible prompt case with the start frame, Blender reference video, Seedance version, duration, and movement constraints all spelled out. | Tutorial |
-| [Character Mapping from Blocking and Reference Images](#case-13) | A reference-mapping case that uses Blender blocking plus multiple character and environment references to tell Seedance which figure should become which character. | Tutorial |
+| [Reproducible Seedance Prompt with Blender Reference](#case-13) | A merged reproducibility and troubleshooting case: the setup spells out the reference-video conditions, while the paired test records where camera/rhythm control worked and foot motion failed. | Tutorial |
 | [Mixamo Motion as Beginner Blender Reference](#case-14) | A beginner-friendly motion-source case: use Mixamo motion in Blender as the controllable movement base before sending the reference to Seedance. | Tutorial |
+| [Position-Only Reference Control for a Faster Scene](#case-23) | A reference-weighting case: keep the reference useful for positions while letting the prompt recover speed and dynamism. | Tutorial |
+| [Physical Toy Reference Instead of 3D Software](#case-24) | A physical-reference case: use toys as quick motion and staging references when opening Blender is too much overhead. | Demo |
+| [Reference Control for a Specific Failed Prompt Scene](#case-26) | A control fallback case: when prompt-only generation fails, use a reference to force the scene even if some dynamism is reduced. | Demo |
+| [Character Proportion and Simple Background Tips](#case-27) | A stability checklist case: match character proportions beyond height and simplify any background that does not need precise alignment. | Tutorial |
 
 <a id="production-pipelines-toolchains"></a>
 ### 🛠️ Production Pipelines & Toolchains / Производственные пайплайны и инструменты
@@ -146,8 +150,9 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 | Кейс | Что показывает | Тип |
 |---|---|---|
-| [Camera Rhythm Control and Foot-Sliding Limits](#case-19) | A limitation case: Blender successfully controls camera, rhythm, and subject path, while natural foot motion still needs better handling. | Limit |
 | [Reference-Only Blender Blockout without Start Frame](#case-20) | A no-start-frame variant showing that Blender blockout plus detailed environment references can work when the workflow cannot rely on a starter frame. | Limit |
+| [Toy Reference Prompt Reinforcement and NG Example](#case-25) | A troubleshooting case showing why reference videos often need prompt reinforcement instead of raw imitation. | Limit |
+| [Cloth Physics Stress Test with Blender and Seedance](#case-28) | A cloth-physics stress test showing where Blender-guided Seedance can work but still needs iteration for difficult motion. | Limit |
 
 <a id="camera-control-previs-cases"></a>
 ## 🎥 Camera Control & Previs / Управление камерой и превиз
@@ -155,11 +160,11 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 <a id="case-1"></a>
 ### Case 1: [Blender Blockout as Seedance Motion Reference](https://x.com/noman23761/status/2071534020014563328) (by [@noman23761](https://x.com/noman23761))
 
-**A complete direction workflow: create a start frame, block the shot with gray boxes in Blender, animate only the camera and timing, then use that blockout as Seedance's motion reference.**
+**A merged direction workflow: use the full gray-box method from the original case, then push it into action-previs timing, speed, shake, and spatial choreography before Seedance generation.**
 
-- Заметки источника: The post describes the whole loop from image-model start frame to crude Blender camera blockout and Seedance motion-reference generation.
+- Заметки источника: Merged with former case 7: together these sources show the full gray-box workflow and the action-previs variant with rough timing, speed, shake, and spatial choreography.
 - Audit status: kept after manual duplicate and originality review.
-
+- Локальные медиа: [case1.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case1.mp4)
 
 Тип: Demo | Дата: 2026-06-29
 
@@ -172,7 +177,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The source gives a clear three-step workflow and reports that the generated video tracks the Blender camera move closely.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2069074144986021888-1920x2160.mp4](media/case-02/video-2069074144986021888-1920x2160.mp4)
+- Локальные медиа: [case2.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case2.mp4)
 
 Тип: Demo | Дата: 2026-06-22
 
@@ -185,7 +190,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The case is useful because it combines Blender previz with multiple still references inside a ComfyUI-style control setup.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070258074795868160-1080x1920.mp4](media/case-03/video-2070258074795868160-1080x1920.mp4)
+- Локальные медиа: [case3.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case3.mp4)
 
 Тип: Demo | Дата: 2026-06-25
 
@@ -196,9 +201,9 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 **A short viewport-preview tutorial: block out the scene, export the preview, turn the first frame realistic, then provide both references to Seedance.**
 
-- Заметки источника: The post gives a concise workflow with concrete artifacts: viewport preview, first-frame image, and Seedance reference video.
+- Заметки источника: The post gives a concise workflow with concrete artifacts: viewport preview, first-frame image, and Seedance reference video. The requested case 29 media is an exact duplicate of this video, so it is linked here instead of becoming a second public case.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070441712242319360-1920x2160.mp4](media/case-04/video-2070441712242319360-1920x2160.mp4)
+- Локальные медиа: [case4.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case4.mp4), [case29.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case29.mp4)
 
 Тип: Demo | Дата: 2026-06-26
 
@@ -211,7 +216,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The source is useful because it separates motion control from world/style variation using the same reference video.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2071307859149631488-1920x1080.mp4](media/case-05/video-2071307859149631488-1920x1080.mp4)
+- Локальные медиа: [case5.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case5.mp4)
 
 Тип: Demo | Дата: 2026-06-28
 
@@ -227,22 +232,9 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The source adds multi-character dialogue and pose matching, making it distinct from single-character camera-control demos.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2069409826589818880-1920x2160.mp4](media/case-06/video-2069409826589818880-1920x2160.mp4)
+- Локальные медиа: [case6.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case6.mp4)
 
 Тип: Demo | Дата: 2026-06-23
-
----
-
-<a id="case-7"></a>
-### Case 7: [Action Choreography from Rough Blender Timing](https://x.com/reidhannaford/status/2070145120658137385) (by [@reidhannaford](https://x.com/reidhannaford))
-
-**An action-previs case showing how rough timing, speed, camera shake, and spatial choreography can be planned in Blender before Seedance renders the shot.**
-
-- Заметки источника: The source focuses on action timing, speed, rough camera shake, and spatial choreography rather than only camera path.
-- Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070142533275877376-1440x2160.mp4](media/case-07/video-2070142533275877376-1440x2160.mp4)
-
-Тип: Demo | Дата: 2026-06-25
 
 ---
 
@@ -253,7 +245,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The source moves the character through the scene while the camera follows, which makes it useful for handheld movement shots.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070507396921733120-1440x2160.mp4](media/case-08/video-2070507396921733120-1440x2160.mp4)
+
 
 Тип: Demo | Дата: 2026-06-26
 
@@ -266,9 +258,22 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The source shows simultaneous camera and character blocking, which is stronger than a simple camera-only reference.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070742547706880000-1920x1080.mp4](media/case-09/video-2070742547706880000-1920x1080.mp4), [video-2070742709737029632-1920x1080.mp4](media/case-09/video-2070742709737029632-1920x1080.mp4)
+- Локальные медиа: [case9.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case9.mp4)
 
 Тип: Demo | Дата: 2026-06-27
+
+---
+
+<a id="case-21"></a>
+### Case 21: [Ambush Scene Previs Beyond a Simple Camera Move](https://x.com/reidhannaford/status/2071595581508563168) (by [@reidhannaford](https://x.com/reidhannaford))
+
+**An ambush-scene case showing how Blender previs can solve staging, timing, and camera movement before Seedance generates the shot.**
+
+- Заметки источника: Requested as case 21. Kept as a distinct Reid Hannaford example because it pushes the workflow beyond a simple camera move into scene staging.
+- Audit status: kept after manual duplicate and originality review.
+- Локальные медиа: [case21.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case21.mp4)
+
+Тип: Demo | Дата: 2026-06-29
 
 ---
 
@@ -282,7 +287,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The author says the test was inspired by another creator, but the described scene, motion, camera, and export process are their own experiment.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2071081165398958080-1080x1440.mp4](media/case-10/video-2071081165398958080-1080x1440.mp4)
+- Локальные медиа: [case10.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case10.mp4)
 
 Тип: Integration | Дата: 2026-06-28
 
@@ -295,38 +300,38 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The post is valuable as a beginner Codex workflow: the user delegates architecture and camera work to Codex before Seedance.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [image-01.jpg](media/case-11/image-01.jpg), [video-2071051005316521984-1080x1216.mp4](media/case-11/video-2071051005316521984-1080x1216.mp4)
+- Локальные медиа: [case11.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case11.mp4)
 
 Тип: Integration | Дата: 2026-06-28
+
+---
+
+<a id="case-22"></a>
+### Case 22: [Claude-Built Blender MCP Previs in Minutes](https://x.com/JoshDaws/status/2071401550845481090) (by [@JoshDaws](https://x.com/JoshDaws))
+
+**A fast agentic-previs case where Claude uses Blender MCP to build a shot reference in two to three minutes.**
+
+- Заметки источника: Requested as case 22. Kept because it demonstrates speed and agent control rather than manual Blender work.
+- Audit status: kept after manual duplicate and originality review.
+- Локальные медиа: [case22.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case22.mp4)
+
+Тип: Integration | Дата: 2026-06-29
 
 ---
 
 <a id="reference-prompt-multi-input-mapping-cases"></a>
 ## 🧩 Reference, Prompt & Multi-Input Mapping / Референсы, промпты и multi-input mapping
 
-<a id="case-12"></a>
-### Case 12: [Reproducible Seedance Prompt with Blender Reference](https://x.com/aidoga_lab/status/2070864815275585913) (by [@aidoga_lab](https://x.com/aidoga_lab))
+<a id="case-13"></a>
+### Case 13: [Reproducible Seedance Prompt with Blender Reference](https://x.com/aidoga_lab/status/2070864815275585913) (by [@aidoga_lab](https://x.com/aidoga_lab))
 
-**A reproducible prompt case with the start frame, Blender reference video, Seedance version, duration, and movement constraints all spelled out.**
+**A merged reproducibility and troubleshooting case: the setup spells out the reference-video conditions, while the paired test records where camera/rhythm control worked and foot motion failed.**
 
-- Заметки источника: The post includes setup conditions and prompt constraints, so it can be reused as a reproducible reference-video case.
+- Заметки источника: Merged with former case 19: the pair keeps both the reproducible setup and the limitation note about foot sliding.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [image-01.jpg](media/case-12/image-01.jpg), [video-2070864756530171904-810x1080.mp4](media/case-12/video-2070864756530171904-810x1080.mp4)
+- Локальные медиа: [case13.jpg](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case13.jpg), [case13.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case13.mp4), [case19.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case19.mp4)
 
 Тип: Tutorial | Дата: 2026-06-27
-
----
-
-<a id="case-13"></a>
-### Case 13: [Character Mapping from Blocking and Reference Images](https://x.com/AIWarper/status/2069481237308452916) (by [@AIWarper](https://x.com/AIWarper))
-
-**A reference-mapping case that uses Blender blocking plus multiple character and environment references to tell Seedance which figure should become which character.**
-
-- Заметки источника: The source explains how to pair a blocking reference with multiple still references so Seedance maps the moving figures correctly.
-- Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [image-01.jpg](media/case-13/image-01.jpg), [image-02.jpg](media/case-13/image-02.jpg), [image-03.jpg](media/case-13/image-03.jpg)
-
-Тип: Tutorial | Дата: 2026-06-23
 
 ---
 
@@ -337,9 +342,61 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The source is useful for beginners because it names Mixamo as a practical motion source for Blender reference videos.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070683855447871488-1920x2160.mp4](media/case-14/video-2070683855447871488-1920x2160.mp4)
+- Локальные медиа: [case14.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case14.mp4)
 
 Тип: Tutorial | Дата: 2026-06-27
+
+---
+
+<a id="case-23"></a>
+### Case 23: [Position-Only Reference Control for a Faster Scene](https://x.com/kan_mi_no9/status/2071380621214224403) (by [@kan_mi_no9](https://x.com/kan_mi_no9))
+
+**A reference-weighting case: keep the reference useful for positions while letting the prompt recover speed and dynamism.**
+
+- Заметки источника: Requested as case 23. Kept with the paired kan_mi_no9 test as a distinct reference-control variant.
+- Audit status: kept after manual duplicate and originality review.
+- Локальные медиа: [case23.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case23.mp4)
+
+Тип: Tutorial | Дата: 2026-06-28
+
+---
+
+<a id="case-24"></a>
+### Case 24: [Physical Toy Reference Instead of 3D Software](https://x.com/gcduncombe/status/2070617538745229546) (by [@gcduncombe](https://x.com/gcduncombe))
+
+**A physical-reference case: use toys as quick motion and staging references when opening Blender is too much overhead.**
+
+- Заметки источника: Requested as case 24. Kept because it expands the reference-video idea beyond software-only previs.
+- Audit status: kept after manual duplicate and originality review.
+- Локальные медиа: [case24.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case24.mp4)
+
+Тип: Demo | Дата: 2026-06-26
+
+---
+
+<a id="case-26"></a>
+### Case 26: [Reference Control for a Specific Failed Prompt Scene](https://x.com/kan_mi_no9/status/2071168235022827587) (by [@kan_mi_no9](https://x.com/kan_mi_no9))
+
+**A control fallback case: when prompt-only generation fails, use a reference to force the scene even if some dynamism is reduced.**
+
+- Заметки источника: Requested as case 26. Kept as the practical counterpart to the later kan_mi_no9 variation case.
+- Audit status: kept after manual duplicate and originality review.
+- Локальные медиа: [case26.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case26.mp4)
+
+Тип: Demo | Дата: 2026-06-28
+
+---
+
+<a id="case-27"></a>
+### Case 27: [Character Proportion and Simple Background Tips](https://x.com/craftcapitallab/status/2070512271391068287) (by [@craftcapitallab](https://x.com/craftcapitallab))
+
+**A stability checklist case: match character proportions beyond height and simplify any background that does not need precise alignment.**
+
+- Заметки источника: Requested as case 27. Kept because it offers specific, reusable setup advice.
+- Audit status: kept after manual duplicate and originality review.
+- Локальные медиа: [case27.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case27.mp4)
+
+Тип: Tutorial | Дата: 2026-06-26
 
 ---
 
@@ -353,7 +410,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The case demonstrates a broader agent-built creative stack, not just manual Blender previs.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [image-01.jpg](media/case-15/image-01.jpg), [video-2069656156398850048-3072x1728.mp4](media/case-15/video-2069656156398850048-3072x1728.mp4), [video-2069656297624969216-1280x720.mp4](media/case-15/video-2069656297624969216-1280x720.mp4)
+- Локальные медиа: [case15.jpg](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case15.jpg), [case15.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case15.mp4)
 
 Тип: Integration | Дата: 2026-06-24
 
@@ -366,7 +423,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: This is the stronger techhalla source because it explains the viewport animation and downstream style/lighting step.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [image-01.jpg](media/case-16/image-01.jpg), [video-2070810169966018561-1920x1080.mp4](media/case-16/video-2070810169966018561-1920x1080.mp4)
+- Локальные медиа: [case16.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case16.mp4)
 
 Тип: Integration | Дата: 2026-06-27
 
@@ -379,7 +436,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The source directly frames the workflow as Blender 3D previz transformed into an anime render while keeping camera motion.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070086817710211072-1000x1100.mp4](media/case-17/video-2070086817710211072-1000x1100.mp4)
+- Локальные медиа: [case17.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case17.mp4)
 
 Тип: Integration | Дата: 2026-06-25
 
@@ -392,7 +449,7 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: The source gives a specific FBX-to-clay-pass process and includes camera keyframing before reference export.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070182579253215232-1916x1080.mp4](media/case-18/video-2070182579253215232-1916x1080.mp4)
+- Локальные медиа: [case18.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case18.mp4)
 
 Тип: Integration | Дата: 2026-06-25
 
@@ -401,19 +458,6 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 <a id="limits-tests-troubleshooting-cases"></a>
 ## 🧪 Limits, Tests & Troubleshooting / Ограничения, тесты и разбор ошибок
 
-<a id="case-19"></a>
-### Case 19: [Camera Rhythm Control and Foot-Sliding Limits](https://x.com/aidoga_lab/status/2070864749865398684) (by [@aidoga_lab](https://x.com/aidoga_lab))
-
-**A limitation case: Blender successfully controls camera, rhythm, and subject path, while natural foot motion still needs better handling.**
-
-- Заметки источника: This is kept as a troubleshooting case because it names what Blender controlled well and where the motion still failed.
-- Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070864673227038720-1920x1080.mp4](media/case-19/video-2070864673227038720-1920x1080.mp4)
-
-Тип: Limit | Дата: 2026-06-27
-
----
-
 <a id="case-20"></a>
 ### Case 20: [Reference-Only Blender Blockout without Start Frame](https://x.com/magneticskiff/status/2070711034793361559) (by [@magneticskiff](https://x.com/magneticskiff))
 
@@ -421,9 +465,35 @@ Use Blender MCP to create a rough 5-second camera blockout for this shot, export
 
 - Заметки источника: This case covers an important variant where reference images replace the usual start-frame dependency.
 - Audit status: kept after manual duplicate and originality review.
-- Локальные медиа: [video-2070709263517847552-1080x1350.mp4](media/case-20/video-2070709263517847552-1080x1350.mp4)
+- Локальные медиа: [case20.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case20.mp4)
 
 Тип: Limit | Дата: 2026-06-27
+
+---
+
+<a id="case-25"></a>
+### Case 25: [Toy Reference Prompt Reinforcement and NG Example](https://x.com/tea_story_hoshi/status/2071002538703479089) (by [@tea_story_hoshi](https://x.com/tea_story_hoshi))
+
+**A troubleshooting case showing why reference videos often need prompt reinforcement instead of raw imitation.**
+
+- Заметки источника: Requested as case 25. Kept because it includes both working examples and a failed comparison.
+- Audit status: kept after manual duplicate and originality review.
+- Локальные медиа: [case25.jpg](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case25.jpg), [case25.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case25.mp4)
+
+Тип: Limit | Дата: 2026-06-27
+
+---
+
+<a id="case-28"></a>
+### Case 28: [Cloth Physics Stress Test with Blender and Seedance](https://x.com/fatboypink/status/2070577334701473800) (by [@fatboypink](https://x.com/fatboypink))
+
+**A cloth-physics stress test showing where Blender-guided Seedance can work but still needs iteration for difficult motion.**
+
+- Заметки источника: Requested as case 28. Kept as a concrete limitation/stress-test case.
+- Audit status: kept after manual duplicate and originality review.
+- Локальные медиа: [case28.mp4](https://github.com/cheercheung/Awesome-Blender-Seedance-Workflow-Usecases/raw/main/media/case28.mp4)
+
+Тип: Limit | Дата: 2026-06-26
 
 ---
 
@@ -441,12 +511,17 @@ This repository was inspired by creators who publicly shared Blender + Seedance 
 - [@akiyoshisan](https://x.com/akiyoshisan)
 - [@6_KAKUU](https://x.com/6_KAKUU)
 - [@aidoga_lab](https://x.com/aidoga_lab)
-- [@AIWarper](https://x.com/AIWarper)
 - [@tanabe_fragm](https://x.com/tanabe_fragm)
 - [@techhalla](https://x.com/techhalla)
 - [@restofart](https://x.com/restofart)
 - [@Viggle_PINOC](https://x.com/Viggle_PINOC)
 - [@magneticskiff](https://x.com/magneticskiff)
+- [@JoshDaws](https://x.com/JoshDaws)
+- [@kan_mi_no9](https://x.com/kan_mi_no9)
+- [@gcduncombe](https://x.com/gcduncombe)
+- [@tea_story_hoshi](https://x.com/tea_story_hoshi)
+- [@craftcapitallab](https://x.com/craftcapitallab)
+- [@fatboypink](https://x.com/fatboypink)
 
 *We cannot guarantee that every case is attributed to the original creator. If anything needs to be corrected, please contact us and we will update it.*
 

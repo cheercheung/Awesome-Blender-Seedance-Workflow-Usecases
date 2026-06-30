@@ -1,20 +1,20 @@
 {
   "metadata": {
-    "generated_at": "2026-06-29T15:44:53Z",
+    "generated_at": "2026-06-30T07:18:46Z",
     "source": "data/primary-use-case-posts.json",
     "repo": "Awesome-Blender-Seedance-Workflow-Usecases",
-    "selected_count": 20,
+    "selected_count": 25,
     "tier_counts": {
       "strong": 13,
-      "medium": 7
+      "medium": 12
     },
     "category_counts": {
       "camera-control": 5,
       "character-action": 4,
-      "agentic-mcp": 2,
-      "reference-prompt": 3,
+      "agentic-mcp": 3,
+      "reference-prompt": 6,
       "production-pipeline": 4,
-      "limitations": 2
+      "limitations": 3
     },
     "cta_status": "quick-start workflow published; final landing page still pending",
     "publication_status": "local scaffold; push to cheercheung/Awesome-Blender-Seedance-Workflow-Usecases approved after local verification; no remote creation approved",
@@ -39,7 +39,12 @@
       "why_selected_zh": "完整说明从 image model 起始帧、Blender 灰盒场景/相机动画，到 Seedance 参考视频生成的端到端流程。",
       "reuse_angle_zh": "可直接改写成“用 Blender blockout 精准导演 AI 镜头”的主 use case。",
       "source_text": "Spent months prompting video models and only just figured out what was missing: prompting is describing a shot, you write what you want and hope the model interprets the camera the way you meant. Blocking it out in Blender first is directing it. The workflow is simpler than it sounds. Generate a start frame on an image model. Then in Blender, build the scene with nothing but basic shapes, no modeling, no textures, just gray boxes for the subject and the environment, and animate the camera: the rough timing, the speed of the move, a little handheld shake, where things sit in space. Export that ugly blockout and feed it plus the start frame into Seedance 2.0 as the motion reference. Here is the part that surprised me. My Blender pass was crude, just timing and camera and spatial layout. Seedance took that skeleton and nailed the speed, the motion, and the action tracking far past what I expected, while inheriting the look from the start frame. You stop hoping the model guesses your camera and start telling it exactly where to go. The whole thing runs on one key, start frame and video on the same setup, so the only real craft left is the directing. That is the actual unlock, you are not describing the shot anymore, you are directing it. The pipeline, end to end: Start frame on an image model (I run Nano Banana 2 / GPT Image 2 for this). In Blender, gray-box the scene and animate ONLY the camera: timing, speed, a touch of handheld shake, spatial layout. No modeling or texturing, the blockout is allowed to look terrible. Feed the start frame + the Blender blockout into Seedance 2.0 as the motion reference. It carries the speed/motion/tracking from Blender and the look from the start frame. Both image and video sit on one OpenAI-compatible key, so the loop never leaves one setup: https://t.co/FaWFadcJg4",
-      "local_media": []
+      "takeaway_en": "A merged direction workflow: use the full gray-box method from the original case, then push it into action-previs timing, speed, shake, and spatial choreography before Seedance generation.",
+      "takeaway_zh": "合并后的导演流程：保留原始灰盒方法，再加入动作预演里的时序、速度、抖动和空间调度，最后交给 Seedance 生成。",
+      "note_en": "Merged with former case 7: together these sources show the full gray-box workflow and the action-previs variant with rough timing, speed, shake, and spatial choreography.",
+      "local_media": [
+        "media/case1.mp4"
+      ]
     },
     {
       "case": 2,
@@ -59,8 +64,11 @@
       "why_selected_zh": "列出 3 步 workflow：Blender block camera、Midjourney start frame、两者送入 Seedance。",
       "reuse_angle_zh": "适合做 precision camera control 的基础案例。",
       "source_text": "This is wild. Every filmmaker needs to try this hybrid AI workflow for precision camera control: 1) Block out your camera in Blender to create a motion reference and animate the camera move 2) Generate your start frame in Midjourney to match the pose and composition 3) Feed both to Seedance It tracks the move almost exactly. This is the most powerful hybrid pipeline I've tried yet.",
+      "takeaway_en": "A compact precision-camera recipe: Blender supplies the camera move, Midjourney supplies the start frame, and Seedance follows the motion reference.",
+      "takeaway_zh": "精确运镜的三步配方：Blender 负责相机运动，Midjourney 负责起始帧，Seedance 按参考运动生成视频。",
+      "note_en": "The source gives a clear three-step workflow and reports that the generated video tracks the Blender camera move closely.",
       "local_media": [
-        "media/case-02/video-2069074144986021888-1920x2160.mp4"
+        "media/case2.mp4"
       ]
     },
     {
@@ -81,8 +89,11 @@
       "why_selected_zh": "说明用 Blender previz 作为 guide，并配 upright/upside-down reference frames。",
       "reuse_angle_zh": "适合做多输入相机控制 case。",
       "source_text": "Seedance 2 has insane motion adherence. This was a test to see how far I could push camera control by using a Blender previz as the guide in Comfy. The model had three inputs: - the Blender previz - a reference frame for the upright world - a reference frame for the upside-down https://t.co/LvEE9A3bF9",
+      "takeaway_en": "A ComfyUI control case where Blender previz is combined with separate upright and upside-down reference frames to test motion adherence.",
+      "takeaway_zh": "ComfyUI 控制案例：Blender previz 搭配 upright/upside-down 参考帧，测试 Seedance 的运动遵循能力。",
+      "note_en": "The case is useful because it combines Blender previz with multiple still references inside a ComfyUI-style control setup.",
       "local_media": [
-        "media/case-03/video-2070258074795868160-1080x1920.mp4"
+        "media/case3.mp4"
       ]
     },
     {
@@ -103,8 +114,12 @@
       "why_selected_zh": "明确流程：Blender block out scene、export viewport preview、抽第一帧转真实图、作为 reference 送 Seedance。",
       "reuse_angle_zh": "适合做 viewport preview → Seedance 的短教程案例。",
       "source_text": "prompting is the old way. this is directing. – block out the scene in blender – export the viewport preview – extract the first frame → turn it into a realistic image in @morphic – drop it into as reference to video – Seedance 2.0 does the rest https://t.co/gg25Iu9VgF",
+      "takeaway_en": "A short viewport-preview tutorial: block out the scene, export the preview, turn the first frame realistic, then provide both references to Seedance.",
+      "takeaway_zh": "Viewport preview 教程：blockout 场景、导出预览、把首帧转成真实图，再把两类参考交给 Seedance。",
+      "note_en": "The post gives a concise workflow with concrete artifacts: viewport preview, first-frame image, and Seedance reference video. The requested case 29 media is an exact duplicate of this video, so it is linked here instead of becoming a second public case.",
       "local_media": [
-        "media/case-04/video-2070441712242319360-1920x2160.mp4"
+        "media/case4.mp4",
+        "media/case29.mp4"
       ]
     },
     {
@@ -125,8 +140,11 @@
       "why_selected_zh": "说明用 Blender 控制、Seedance 想象，同一 reference video 生成不同 worlds，并提到 prompt。",
       "reuse_angle_zh": "适合做 style/world variation case。",
       "source_text": "Control with Blender, imagine with Seedance 2.0 🎬 Same reference video, different worlds. Here's the prompt I used to generate the video. The beginning is always the same only what happens in each scene changes. https://t.co/F5zFzXr6lu",
+      "takeaway_en": "A style/world-variation case where the same Blender reference video drives different generated worlds in Seedance.",
+      "takeaway_zh": "同一参考视频生成不同世界：用同一段 Blender reference 锁定运动，再让 Seedance 改变世界和风格。",
+      "note_en": "The source is useful because it separates motion control from world/style variation using the same reference video.",
       "local_media": [
-        "media/case-05/video-2071307859149631488-1920x1080.mp4"
+        "media/case5.mp4"
       ]
     },
     {
@@ -147,30 +165,11 @@
       "why_selected_zh": "说明用 Midjourney 起始帧、Blender pose/camera，再交给 Seedance，实现两个一致角色和对话镜头。",
       "reuse_angle_zh": "适合做多角色表演/对话场景 use case。",
       "source_text": "I'm blown away. This AI filmmaking workflow for precise camera control, multiple characters, and dialogue is insane: 1. Generate a start frame in Midjourney 2. Match the poses in Blender, animate the camera 3. Feed both to Seedance I didn't think this would work. Two consistent characters, solid performances, the move tracked perfectly through the entire beat. Even the soup looks great.",
+      "takeaway_en": "A dialogue-shot workflow where Blender is used to match character poses and camera motion before Seedance generates the performed scene.",
+      "takeaway_zh": "多角色对话镜头：先在 Blender 里匹配角色姿势和相机运动，再让 Seedance 生成表演结果。",
+      "note_en": "The source adds multi-character dialogue and pose matching, making it distinct from single-character camera-control demos.",
       "local_media": [
-        "media/case-06/video-2069409826589818880-1920x2160.mp4"
-      ]
-    },
-    {
-      "case": 7,
-      "source_index": 5,
-      "id": "2070145120658137385",
-      "url": "https://x.com/reidhannaford/status/2070145120658137385",
-      "author": "@reidhannaford",
-      "author_url": "https://x.com/reidhannaford",
-      "date": "2026-06-25",
-      "category": "character-action",
-      "category_name": "Character & Action Blocking",
-      "title": "Action Choreography from Rough Blender Timing",
-      "title_zh": "复杂动作场景编排",
-      "evidence_type": "Demo",
-      "quality_tier": "strong",
-      "source_role": "primary_original",
-      "why_selected_zh": "明确说明用 Blender basic shapes 编排 action scene，Seedance 负责真实化。",
-      "reuse_angle_zh": "适合做动作戏/空间调度 use case。",
-      "source_text": "Ok, this is absurd. You can choreograph a complex action scene in Blender with basic shapes, then let Seedance make it real. You need to try this AI filmmaking workflow: 1. Generate a start frame in Midjourney 2. Block out the action in Blender 3. Feed both to Seedance My Blender reference was just rough timing, camera shake, and spatial choreography, and Seedance tracked the speed, motion, and action way better than I expected. This is the difference between describing a shot and directing one.",
-      "local_media": [
-        "media/case-07/video-2070142533275877376-1440x2160.mp4"
+        "media/case6.mp4"
       ]
     },
     {
@@ -191,9 +190,10 @@
       "why_selected_zh": "说明在 Blender 中移动角色并做 handheld camera follow，Seedance 跟随运动和质感。",
       "reuse_angle_zh": "适合做手持跟拍、角色移动穿越空间的案例。",
       "source_text": "The previs workflow is still leveling up! My AI filmmaking process is starting to feel less like wrangling AI and more like animation. Still just cubes in Blender, but now I’m moving the character through space and doing a handheld camera follow. Same basic process: 1. Generate a start frame in Midjourney 2. Block out the scene in Blender, animate the camera 3. Feed both to Seedance Seedance nailed the gritty handheld feel and followed the character movement around the car way better than expected. You can get way more ambitious with your directing than I thought.",
-      "local_media": [
-        "media/case-08/video-2070507396921733120-1440x2160.mp4"
-      ]
+      "takeaway_en": "A handheld-follow case where Blender controls how a character travels through space and Seedance carries the gritty camera move into the final video.",
+      "takeaway_zh": "手持跟拍：Blender 控制角色穿越空间和相机跟随，Seedance 把这种粗粝跟拍感带到最终视频。",
+      "note_en": "The source moves the character through the scene while the camera follows, which makes it useful for handheld movement shots.",
+      "local_media": []
     },
     {
       "case": 9,
@@ -213,9 +213,11 @@
       "why_selected_zh": "明确实现 camera orbit、lens choice、gunfire/cover positions/pop-outs，并说 prompt below。",
       "reuse_angle_zh": "适合做动作场景 tactical blocking case。",
       "source_text": "Finally got this @Blender → Seedance workflow working for not just camera blocking, but character blocking simultaneously. Camera orbit, lens choice, gunfire + cover positions, pop-outs. All directed from pre-vis prior to video generation. Prompt below. Made using @dreamina_ai https://t.co/iLFCabW32W",
+      "takeaway_en": "A tactical blocking case where Blender directs camera orbit, lens choice, cover positions, gunfire beats, and character movement before generation.",
+      "takeaway_zh": "战术动作 blocking：在生成前用 Blender 规划相机环绕、镜头、掩体位置、枪火节奏和角色移动。",
+      "note_en": "The source shows simultaneous camera and character blocking, which is stronger than a simple camera-only reference.",
       "local_media": [
-        "media/case-09/video-2070742547706880000-1920x1080.mp4",
-        "media/case-09/video-2070742709737029632-1920x1080.mp4"
+        "media/case9.mp4"
       ]
     },
     {
@@ -236,8 +238,11 @@
       "why_selected_zh": "列出 Blender MCP 连接 Codex、生成猫/市场/屋台、15 秒 motion、camera work、导出 MP4 reference 的完整流程。",
       "reuse_angle_zh": "适合做 Agentic Blender MCP + Seedance use case。",
       "source_text": "SEIIIRUさんのを参考に、CodexからBlender MCPで試してみました。 投稿をみて、Blenderでもいけそう！と初のMCP繋いでやってみましたが中々難しいっす… ────────────── ▼ 試した内容 ・Blender MCP｜CodexからBlenderへ直接Python実行 ・簡易3Dシーン｜石畳の市場、木製の魚屋台、魚、猫を作成 ・猫モーション｜屋台に向かって歩く、止まる、魚を見る、前足を上げる ・カメラ設計｜猫・屋台・距離感が見える斜め構図で追従 ────────────── ▼ 制作フロー 1. Blender MCPをCodexに接続 2. CodexからBlenderへコード送信 3. 猫・屋台・市場を簡易モデルで生成 4. 15秒の歩きモーションを作成 5. カメラワークを調整 6. 代表フレームで破綻を確認 7. 接触・向き・構図を修正 8. MP4として参照動画を書き出し ────────────── Blender → 参照動画 → Seedance 2.0の流れで、 「動きの設計」と「生成AIへの渡し方」を検証中です。SEIIIRUさんいつもありがとございます♪",
+      "takeaway_en": "An agentic Blender MCP case where Codex builds a simple 3D market, cat motion, camera framing, and an MP4 reference for Seedance.",
+      "takeaway_zh": "Agentic Blender MCP 案例：Codex 生成简易市场、猫的动作、相机构图，并导出给 Seedance 的 MP4 参考。",
+      "note_en": "The author says the test was inspired by another creator, but the described scene, motion, camera, and export process are their own experiment.",
       "local_media": [
-        "media/case-10/video-2071081165398958080-1080x1440.mp4"
+        "media/case10.mp4"
       ]
     },
     {
@@ -258,13 +263,15 @@
       "why_selected_zh": "说明 Blender 初学第 3 天，建筑到 camera work 都由 Codex 完成，Seedance 能跟随。",
       "reuse_angle_zh": "适合做 Codex-assisted camera work case。",
       "source_text": "Blender × Seedance 2.0ってすごいな、本当に追従してくれるんだな。 Blenderインストールして３日目なんですが、建物からカメラワークまでCodex君が全てやってくれました。 ちなみにカメラワークの指示には、少し懐かしさを感じつつある矢印（Arrow）をCodexに対して使ってみた。 https://t.co/q33raf0W4a",
+      "takeaway_en": "A Codex-assisted beginner case where architecture and camera work are generated in Blender and then tested as Seedance reference motion.",
+      "takeaway_zh": "Codex 辅助新手案例：建筑和 camera work 由 Codex 在 Blender 中生成，再测试 Seedance 参考运动。",
+      "note_en": "The post is valuable as a beginner Codex workflow: the user delegates architecture and camera work to Codex before Seedance.",
       "local_media": [
-        "media/case-11/image-01.jpg",
-        "media/case-11/video-2071051005316521984-1080x1216.mp4"
+        "media/case11.mp4"
       ]
     },
     {
-      "case": 12,
+      "case": 13,
       "source_index": 7,
       "id": "2070864815275585913",
       "url": "https://x.com/aidoga_lab/status/2070864815275585913",
@@ -281,33 +288,13 @@
       "why_selected_zh": "给出 start frame、Blender reference video、Seedance 2.0、5s、以及长 prompt。",
       "reuse_angle_zh": "适合做可复现 prompt/source case。",
       "source_text": "再現用に条件を全部置いておきます。 ・スタートフレーム：添付のキャラ画像 ・参照動画：添付のBlender動画 ・モデル：Seedance 2.0 ・尺：5s 使ったプロンプト↓ RReference video 1 defines the camera movement, timing, and the walker's path ONLY — match its trajectory, speed, framing, and the walker's position and facing exactly. The teal figure with pink arms and a purple backpack in the reference is the walker. Do NOT copy the reference's footwork or leg motion: in the reference the figure slides forward without stepping — ignore that completely. Generate a natural, grounded walking gait yourself, with the feet clearly planting and pushing off the pavement in time with her forward movement. Style & Mood: retro anime city-pop, warm late-afternoon light. Easy at open → solitary at close. Dynamic Description: From the held opening frame, the figure in the teal varsity jacket with the purple shoulder bag on her back steps forward and walks straight ahead at an unhurried, natural pace — feet planting on the ground with each step, never sliding — facing her direction of travel the whole time, never turning to profile. This is one single continuous unbroken take with no cuts: the camera rises and orbits around her in one fluid spiral, sweeping smoothly from a full-body frontal up and around to a high angle behind her, looking down on her back as she walks away; the street and storefronts slide and recede continuously beneath the moving camera. Static Description: teal varsity jacket (one yellow sleeve, one pink sleeve), white cherry-print tee, teal shorts, pink-and-teal sneakers, long dark hair with pink streaks, purple shoulder bag. Audio: even footsteps on pavement, faint city-pop from the shop doorway, distant street ambience.",
+      "takeaway_en": "A merged reproducibility and troubleshooting case: the setup spells out the reference-video conditions, while the paired test records where camera/rhythm control worked and foot motion failed.",
+      "takeaway_zh": "合并后的复现与排查案例：一条写清参考视频条件，另一条记录相机/节奏控制有效但脚步动作仍会失败。",
+      "note_en": "Merged with former case 19: the pair keeps both the reproducible setup and the limitation note about foot sliding.",
       "local_media": [
-        "media/case-12/image-01.jpg",
-        "media/case-12/video-2070864756530171904-810x1080.mp4"
-      ]
-    },
-    {
-      "case": 13,
-      "source_index": 10,
-      "id": "2069481237308452916",
-      "url": "https://x.com/AIWarper/status/2069481237308452916",
-      "author": "@AIWarper",
-      "author_url": "https://x.com/AIWarper",
-      "date": "2026-06-23",
-      "category": "reference-prompt",
-      "category_name": "Reference, Prompt & Multi-Input Mapping",
-      "title": "Character Mapping from Blocking and Reference Images",
-      "title_zh": "Blender blocking + 多参考图 + 角色锁定 prompt",
-      "evidence_type": "Tutorial",
-      "quality_tier": "strong",
-      "source_role": "primary_original",
-      "why_selected_zh": "给出 Seedance prompt，把 motion/blocking reference 中的角色映射到指定角色参考图。",
-      "reuse_angle_zh": "适合做 prompt engineering + character mapping case。",
-      "source_text": "The TL:DR here is if you are proficient in blocking out animation inside of Blender (or whatever) you can really nail the exact shots you want. Here I attached these 3 ref images + the source video I linked above with this Seedance prompt: \"In a retro 1980s anime style, hand-drawn cel animation, set on the sunny city street from the attached environment reference image — tall buildings lined with Japanese signage and advertisements, a bright blue sky with scattered clouds, warm daylight. @ Video1 is a motion and blocking reference containing exactly two figures: a BLUE/TEAL figure that runs and chases along the ground, and a RED figure that flies and leaps through the air holding an object. Re-skin them as the two attached character references and place the whole chase into that reference city street. CHARACTER LOCK — this mapping is absolute and must hold identically in EVERY shot and across EVERY cut, with no exceptions and no swaps: the BLUE/TEAL ground-running pursuer is ALWAYS KAITO, a young man with dark styled hair, dark aviator sunglasses, a charcoal blazer over a white t-shirt, light-blue jeans and white sneakers with blue accents — Kaito is male in every single frame. The RED airborne flying figure that leaps through the air holding the object is ALWAYS RIKO, a young woman with purple hair, pink heart-shaped sunglasses, a pastel athletic jacket, denim shorts and high-top sneakers — Riko is female in every single frame. The flying character is always the purple-haired girl Riko; the ground-running character is always the dark-haired man Kaito. Their identities, genders, hair colors and outfits never reverse, blend, or trade between shots. Do not place purple hair or heart-shaped glasses on the runner; do not place Kaito's blazer or dark aviators on the flier. Keep the high-speed chase energy: Riko leaping and gliding between the buildings of that city street above, Kaito sprinting in pursuit along the street below, sharp camera angles and rapid cuts, sunny daylight matching the environment reference. NEGATIVE CONSTRAINTS: no swapping the two characters, no gender swap, the ground runner is never female, the flying figure is never male, no purple hair on Kaito, no heart-shaped glasses on Kaito, no charcoal blazer or dark aviators on Riko, identities never reverse between cuts, no duplicate characters, no extra people, no third figure, no night or rain, no green tint, no watermarks, no timestamps.\"",
-      "local_media": [
-        "media/case-13/image-01.jpg",
-        "media/case-13/image-02.jpg",
-        "media/case-13/image-03.jpg"
+        "media/case13.jpg",
+        "media/case13.mp4",
+        "media/case19.mp4"
       ]
     },
     {
@@ -328,8 +315,11 @@
       "why_selected_zh": "测试 Blender x Seedance，并建议初学者下载 Mixamo motion 导入 Blender。",
       "reuse_angle_zh": "适合做 beginner motion-source case。",
       "source_text": "巷で盛り上がっているBlender × Seedance 2.0のワークフローをテスト🎥 この手法だと、確かに細かい動きのコントロールができそう。 ただ、私みたいなBlender素人だと思い通りに動かすのが難しい...😓 次は、Blender MCPを試してみようと思います。 Higgsfieldとかが簡易的なツール（Viewport Preview Referenceという名称）を公開しそうなので、そっちを待つのも手だと思います。 クリエイターさん達はこういうのが作れて本当に凄い❗️と改めて思いました😃 ちなみに、今回のモーションはMixamoというサイトから無料ダウンロードしました。 初心者の方はこういうサービスからモーションをダウンロードしてBlenderにインポートすると早いと思います。",
+      "takeaway_en": "A beginner-friendly motion-source case: use Mixamo motion in Blender as the controllable movement base before sending the reference to Seedance.",
+      "takeaway_zh": "新手运动来源案例：从 Mixamo 拿动作导入 Blender，作为可控运动基础后再送入 Seedance。",
+      "note_en": "The source is useful for beginners because it names Mixamo as a practical motion source for Blender reference videos.",
       "local_media": [
-        "media/case-14/video-2070683855447871488-1920x2160.mp4"
+        "media/case14.mp4"
       ]
     },
     {
@@ -350,10 +340,12 @@
       "why_selected_zh": "说明 agent 安装 Krea2、连接 ComfyUI 和 Blender MCP，生成 reference image + physical ref vid 后送 Seedance。",
       "reuse_angle_zh": "适合做 multi-agent creative pipeline 候选。",
       "source_text": "Wild Experiment. Had my Hermes install @krea_ai 2 on the @NVIDIAAI Dgx Spark and connect it to @ComfyUI. Had Hermes then install @Blender and connect to it via the mcp. I had Hermes make a reference image in Krea2, + Physical ref vid in Blender. I then put all into Seedance 2.0. via @dreamina_ai.",
+      "takeaway_en": "A multi-tool agent pipeline where Hermes installs and connects Krea, ComfyUI, Blender MCP, and Seedance to produce both image and physical references.",
+      "takeaway_zh": "多工具 agent 管线：Hermes 安装并连接 Krea、ComfyUI、Blender MCP 和 Seedance，生成图像与物理参考。",
+      "note_en": "The case demonstrates a broader agent-built creative stack, not just manual Blender previs.",
       "local_media": [
-        "media/case-15/image-01.jpg",
-        "media/case-15/video-2069656156398850048-3072x1728.mp4",
-        "media/case-15/video-2069656297624969216-1280x720.mp4"
+        "media/case15.jpg",
+        "media/case15.mp4"
       ]
     },
     {
@@ -374,9 +366,11 @@
       "why_selected_zh": "说明 adding 3D gives camera/element control，并声称 exactly how I did it。",
       "reuse_angle_zh": "适合做 Blender MCP + style transfer 主案例。",
       "source_text": "Adding 3D to your animation workflow gives you full control over the camera and every element in the scene. I built this viewport animation in Blender MCP, then took it into Seedance 2.0 in Magnific to add textures and lighting. Here's exactly how I did it 👇 https://t.co/G2Q8IdfFEy",
+      "takeaway_en": "A viewport-to-style-transfer case: Blender MCP provides camera and element control, then Seedance/Magnific add texture and lighting.",
+      "takeaway_zh": "Viewport 到风格化案例：Blender MCP 提供相机和元素控制，再用 Seedance/Magnific 加纹理和光照。",
+      "note_en": "This is the stronger techhalla source because it explains the viewport animation and downstream style/lighting step.",
       "local_media": [
-        "media/case-16/image-01.jpg",
-        "media/case-16/video-2070810169966018561-1920x1080.mp4"
+        "media/case16.mp4"
       ]
     },
     {
@@ -397,8 +391,11 @@
       "why_selected_zh": "说明 full camera moves and motion preserved，定位 previz → AI-render pipeline。",
       "reuse_angle_zh": "适合作为 anime/render pipeline case。",
       "source_text": "Made a 3D previz in Blender, then rendered it as anime with Seedance — all inside Doitong. Full camera moves and motion preserved. This previz → AI-render pipeline is how AI filmmaking beats \"prompt and pray.\" Anyone else building this way? 👇 https://t.co/z0woB9BNFg",
+      "takeaway_en": "A 3D-previs-to-anime case showing how camera moves and motion can be preserved while Seedance changes the render style.",
+      "takeaway_zh": "3D previz 到动画渲染：用 Seedance 改变画面风格，同时保留 Blender 里的相机运动和动作。",
+      "note_en": "The source directly frames the workflow as Blender 3D previz transformed into an anime render while keeping camera motion.",
       "local_media": [
-        "media/case-17/video-2070086817710211072-1000x1100.mp4"
+        "media/case17.mp4"
       ]
     },
     {
@@ -419,30 +416,11 @@
       "why_selected_zh": "具体 step：Blender 导入 FBX 到 clay model、设置 camera、Claude keyframe camera moves、导出 mp4 给 Seedance refs。",
       "reuse_angle_zh": "适合做 FBX/Mixamo 动画参考流程。",
       "source_text": "Step 2: Blender Import the FBX onto a clay model, then set your camera. We had Claude keyframe the camera moves, adjusted the angles, and rendered the clay pass. Export to mp4 for Seedance refs. https://t.co/kdZI8bWdi1",
+      "takeaway_en": "An FBX clay-pass workflow where Blender imports the motion, Claude helps keyframe camera moves, and the rendered pass becomes Seedance reference video.",
+      "takeaway_zh": "FBX clay pass 流程：Blender 导入动作，Claude 辅助关键帧相机，渲染后的 clay pass 成为 Seedance 参考视频。",
+      "note_en": "The source gives a specific FBX-to-clay-pass process and includes camera keyframing before reference export.",
       "local_media": [
-        "media/case-18/video-2070182579253215232-1916x1080.mp4"
-      ]
-    },
-    {
-      "case": 19,
-      "source_index": 8,
-      "id": "2070864749865398684",
-      "url": "https://x.com/aidoga_lab/status/2070864749865398684",
-      "author": "@aidoga_lab",
-      "author_url": "https://x.com/aidoga_lab",
-      "date": "2026-06-27",
-      "category": "limitations",
-      "category_name": "Limits, Tests & Troubleshooting",
-      "title": "Camera Rhythm Control and Foot-Sliding Limits",
-      "title_zh": "相机/节奏/移动控制实验与失败点",
-      "evidence_type": "Limit",
-      "quality_tier": "medium",
-      "source_role": "primary_original",
-      "why_selected_zh": "说明用 Blender 视频控制 Seedance 的 camera/rhythm/subject movement，同时指出 foot sliding 问题。",
-      "reuse_angle_zh": "适合做 limitations + troubleshooting case。",
-      "source_text": "AI動画13日目。 Blender動画をSeedanceに参照させて、 カメラの動き・リズム・被写体の移動を制御するやり方にチャレンジしてみました。 結果、 カメラの動き・リズム・移動は、狙い通り制御できた。 でも\"足の動き＝仕草\"がうまくいかない。 Blender動画の動きをそのまま参照してしまって、自然な歩きにならない。 プロンプトでの制御も、モデル変更（mini→2.0）も試したけど、 どうしても足が滑ってしまう。 Blender動画側が正確な仕草をしてればクリアできる気はしてます。 でも理想は、Blender動画は「カメラ・リズム・移動」だけのリファレンスにして、 仕草はプロンプトに任せる形。 ここがまだ解けてません。 皆さんはどう制御してますか？",
-      "local_media": [
-        "media/case-19/video-2070864673227038720-1920x1080.mp4"
+        "media/case18.mp4"
       ]
     },
     {
@@ -463,9 +441,213 @@
       "why_selected_zh": "说明 Seedance + Blender blockout 可以使用 references 而非 starter frames，环境参考有足够细节时效果较好。",
       "reuse_angle_zh": "适合做 reference-only variant 候选。",
       "source_text": "Seedance + Blender blockout using references, no start frame. I've been messing with the Blender blockout, but for a lot of my own workflow I need to be able to do it using references without starter frames. This works well so far if you're environmental reference has enough discrete details.",
+      "takeaway_en": "A no-start-frame variant showing that Blender blockout plus detailed environment references can work when the workflow cannot rely on a starter frame.",
+      "takeaway_zh": "无起始帧变体：当不能依赖 starter frame 时，用 Blender blockout 加详细环境参考也能工作。",
+      "note_en": "This case covers an important variant where reference images replace the usual start-frame dependency.",
       "local_media": [
-        "media/case-20/video-2070709263517847552-1080x1350.mp4"
+        "media/case20.mp4"
       ]
+    },
+    {
+      "case": 21,
+      "source_index": null,
+      "id": "2071595581508563168",
+      "url": "https://x.com/reidhannaford/status/2071595581508563168",
+      "author": "@reidhannaford",
+      "author_url": "https://x.com/reidhannaford",
+      "date": "2026-06-29",
+      "category": "character-action",
+      "title": "Ambush Scene Previs Beyond a Simple Camera Move",
+      "title_zh": "伏击场景 previs + Seedance 动作调度",
+      "evidence_type": "Demo",
+      "quality_tier": "strong",
+      "source_role": "primary_original",
+      "why_selected_zh": "明确把 Midjourney 起始图、Blender blocking/相机动画和 Seedance 组合，用于复杂伏击场景而不只是简单运镜。",
+      "reuse_angle_zh": "适合做复杂场景先解决 staging、timing 和 camera movement，再生成镜头的案例。",
+      "source_text": "Seedance 2.0 is insane. Blender previs is having a moment in AI filmmaking for a reason. I wanted to see how far I could push the workflow beyond a simple camera move in an ambush scene. The workflow: make a start image in Midjourney, block it out in Blender, animate the camera, feed both to Seedance.",
+      "takeaway_en": "An ambush-scene case showing how Blender previs can solve staging, timing, and camera movement before Seedance generates the shot.",
+      "takeaway_zh": "伏击场景案例：先用 Blender previs 解决 staging、timing 和 camera movement，再交给 Seedance 生成镜头。",
+      "note_en": "Requested as case 21. Kept as a distinct Reid Hannaford example because it pushes the workflow beyond a simple camera move into scene staging.",
+      "local_media": [
+        "media/case21.mp4"
+      ],
+      "category_name": "Character & Action Blocking"
+    },
+    {
+      "case": 22,
+      "source_index": null,
+      "id": "2071401550845481090",
+      "url": "https://x.com/JoshDaws/status/2071401550845481090",
+      "author": "@JoshDaws",
+      "author_url": "https://x.com/JoshDaws",
+      "date": "2026-06-29",
+      "category": "agentic-mcp",
+      "title": "Claude-Built Blender MCP Previs in Minutes",
+      "title_zh": "Claude 用 Blender MCP 几分钟生成 previs",
+      "evidence_type": "Integration",
+      "quality_tier": "medium",
+      "source_role": "primary_original",
+      "why_selected_zh": "说明 Claude 通过 Blender MCP 为镜头创建 previs，并强调 2-3 分钟完成。",
+      "reuse_angle_zh": "适合做 agent 快速搭建镜头预演的短案例。",
+      "source_text": "Yup. Had Claude use Blender MCP to create previs for a shot in the next installment of Mary Sue. Worked like a charm. Took Claude 2-3 minutes to make this.",
+      "takeaway_en": "A fast agentic-previs case where Claude uses Blender MCP to build a shot reference in two to three minutes.",
+      "takeaway_zh": "快速 agentic previs 案例：Claude 通过 Blender MCP 在 2-3 分钟内搭出镜头参考。",
+      "note_en": "Requested as case 22. Kept because it demonstrates speed and agent control rather than manual Blender work.",
+      "local_media": [
+        "media/case22.mp4"
+      ],
+      "category_name": "Agentic Blender MCP"
+    },
+    {
+      "case": 23,
+      "source_index": null,
+      "id": "2071380621214224403",
+      "url": "https://x.com/kan_mi_no9/status/2071380621214224403",
+      "author": "@kan_mi_no9",
+      "author_url": "https://x.com/kan_mi_no9",
+      "date": "2026-06-28",
+      "category": "reference-prompt",
+      "title": "Position-Only Reference Control for a Faster Scene",
+      "title_zh": "只保留位置关系的参考控制",
+      "evidence_type": "Tutorial",
+      "quality_tier": "medium",
+      "source_role": "primary_original",
+      "why_selected_zh": "说明通过调低参考视频对动作的约束、聚焦位置关系，补回 Seedance 的速度感和动态感。",
+      "reuse_angle_zh": "适合做 reference adherence 调参案例。",
+      "source_text": "A derivative experiment from a previous split-body test. The author notes that by narrowing the reference degree toward positional relationships, Seedance came closer to the intended speed and image even when the original previs was not fast.",
+      "takeaway_en": "A reference-weighting case: keep the reference useful for positions while letting the prompt recover speed and dynamism.",
+      "takeaway_zh": "参考权重案例：只让参考视频约束位置关系，再用 prompt 补回速度感和动态感。",
+      "note_en": "Requested as case 23. Kept with the paired kan_mi_no9 test as a distinct reference-control variant.",
+      "local_media": [
+        "media/case23.mp4"
+      ],
+      "category_name": "Reference, Prompt & Multi-Input Mapping"
+    },
+    {
+      "case": 24,
+      "source_index": null,
+      "id": "2070617538745229546",
+      "url": "https://x.com/gcduncombe/status/2070617538745229546",
+      "author": "@gcduncombe",
+      "author_url": "https://x.com/gcduncombe",
+      "date": "2026-06-26",
+      "category": "reference-prompt",
+      "title": "Physical Toy Reference Instead of 3D Software",
+      "title_zh": "用实体玩具替代 3D 软件做参考",
+      "evidence_type": "Demo",
+      "quality_tier": "medium",
+      "source_role": "primary_original",
+      "why_selected_zh": "提出不打开 3D 软件时也可以用玩具拍摄运动/构图参考，作为 Blender+AI render 讨论的替代路径。",
+      "reuse_angle_zh": "适合做 physical previs / toy reference 的轻量替代案例。",
+      "source_text": "Everyone is talking about Blender + an AI rendering step but if you don't feel like cracking open 3d software, just use your kids' toys.",
+      "takeaway_en": "A physical-reference case: use toys as quick motion and staging references when opening Blender is too much overhead.",
+      "takeaway_zh": "实体参考案例：当不想打开 Blender 时，用玩具快速拍摄运动和 staging 参考。",
+      "note_en": "Requested as case 24. Kept because it expands the reference-video idea beyond software-only previs.",
+      "local_media": [
+        "media/case24.mp4"
+      ],
+      "category_name": "Reference, Prompt & Multi-Input Mapping"
+    },
+    {
+      "case": 25,
+      "source_index": null,
+      "id": "2071002538703479089",
+      "url": "https://x.com/tea_story_hoshi/status/2071002538703479089",
+      "author": "@tea_story_hoshi",
+      "author_url": "https://x.com/tea_story_hoshi",
+      "date": "2026-06-27",
+      "category": "limitations",
+      "title": "Toy Reference Prompt Reinforcement and NG Example",
+      "title_zh": "玩具参考 + prompt 补强 + NG 对照",
+      "evidence_type": "Limit",
+      "quality_tier": "strong",
+      "source_role": "primary_original",
+      "why_selected_zh": "同时给出成功例和 NG 例：解析参考视频并用 prompt 补强会更自然，直接忠实参考则动作和姿势容易僵硬。",
+      "reuse_angle_zh": "适合做 reference video troubleshooting 与 prompt reinforcement 案例。",
+      "source_text": "The author uses toy-shot references with Seedance 2 Mini, compares prompt-reinforced outputs against an NG example, and notes that direct reference adherence can make movement and poses feel stiff.",
+      "takeaway_en": "A troubleshooting case showing why reference videos often need prompt reinforcement instead of raw imitation.",
+      "takeaway_zh": "排查案例：参考视频通常需要 prompt 补强，不能只让模型机械照搬。",
+      "note_en": "Requested as case 25. Kept because it includes both working examples and a failed comparison.",
+      "local_media": [
+        "media/case25.jpg",
+        "media/case25.mp4"
+      ],
+      "category_name": "Limits, Tests & Troubleshooting"
+    },
+    {
+      "case": 26,
+      "source_index": null,
+      "id": "2071168235022827587",
+      "url": "https://x.com/kan_mi_no9/status/2071168235022827587",
+      "author": "@kan_mi_no9",
+      "author_url": "https://x.com/kan_mi_no9",
+      "date": "2026-06-28",
+      "category": "reference-prompt",
+      "title": "Reference Control for a Specific Failed Prompt Scene",
+      "title_zh": "用参考控制修复 prompt 反复失败的场景",
+      "evidence_type": "Demo",
+      "quality_tier": "medium",
+      "source_role": "primary_original",
+      "why_selected_zh": "说明虽然会损失部分 Seedance 自由运镜和动态，但在必须得到特定画面的场景里很有用。",
+      "reuse_angle_zh": "适合做“prompt 失败时用 reference 兜底”的案例。",
+      "source_text": "The author notes that reference control can reduce some of Seedance 2.0's camera freedom and dynamism, but it helped in a work scene where prompt-only attempts repeatedly failed.",
+      "takeaway_en": "A control fallback case: when prompt-only generation fails, use a reference to force the scene even if some dynamism is reduced.",
+      "takeaway_zh": "控制兜底案例：prompt-only 反复失败时，用 reference 强制场景成立，即使会损失部分动态。",
+      "note_en": "Requested as case 26. Kept as the practical counterpart to the later kan_mi_no9 variation case.",
+      "local_media": [
+        "media/case26.mp4"
+      ],
+      "category_name": "Reference, Prompt & Multi-Input Mapping"
+    },
+    {
+      "case": 27,
+      "source_index": null,
+      "id": "2070512271391068287",
+      "url": "https://x.com/craftcapitallab/status/2070512271391068287",
+      "author": "@craftcapitallab",
+      "author_url": "https://x.com/craftcapitallab",
+      "date": "2026-06-26",
+      "category": "reference-prompt",
+      "title": "Character Proportion and Simple Background Tips",
+      "title_zh": "角色比例与简化背景的稳定性技巧",
+      "evidence_type": "Tutorial",
+      "quality_tier": "medium",
+      "source_role": "primary_original",
+      "why_selected_zh": "总结了让参考更稳定的具体技巧：figure 不只调头身，还要让手脚体积贴合角色设计；不需要对齐的背景尽量简单。",
+      "reuse_angle_zh": "适合做 Blender/参考视频的稳定性 checklist。",
+      "source_text": "The author shares practical tips: match not just body height but arm and leg volume to the character design, and keep backgrounds that do not need matching as simple models.",
+      "takeaway_en": "A stability checklist case: match character proportions beyond height and simplify any background that does not need precise alignment.",
+      "takeaway_zh": "稳定性 checklist：角色比例不只看头身，还要匹配手脚体积；无须对齐的背景尽量简化。",
+      "note_en": "Requested as case 27. Kept because it offers specific, reusable setup advice.",
+      "local_media": [
+        "media/case27.mp4"
+      ],
+      "category_name": "Reference, Prompt & Multi-Input Mapping"
+    },
+    {
+      "case": 28,
+      "source_index": null,
+      "id": "2070577334701473800",
+      "url": "https://x.com/fatboypink/status/2070577334701473800",
+      "author": "@fatboypink",
+      "author_url": "https://x.com/fatboypink",
+      "date": "2026-06-26",
+      "category": "limitations",
+      "title": "Cloth Physics Stress Test with Blender and Seedance",
+      "title_zh": "Blender + Seedance 布料物理压力测试",
+      "evidence_type": "Limit",
+      "quality_tier": "medium",
+      "source_role": "primary_original",
+      "why_selected_zh": "明确把目标设为测试 Seedance 对 cloth physics 的处理能力，并说明这是较难解决的输出。",
+      "reuse_angle_zh": "适合做 cloth physics / complex motion stress test 案例。",
+      "source_text": "Another Blender + Seedance production testing how well Seedance handled cloth physics. The author says it was the most challenging output to solve and still has room for exploration.",
+      "takeaway_en": "A cloth-physics stress test showing where Blender-guided Seedance can work but still needs iteration for difficult motion.",
+      "takeaway_zh": "布料物理压力测试：Blender-guided Seedance 可用，但复杂运动仍需要多轮迭代。",
+      "note_en": "Requested as case 28. Kept as a concrete limitation/stress-test case.",
+      "local_media": [
+        "media/case28.mp4"
+      ],
+      "category_name": "Limits, Tests & Troubleshooting"
     }
   ]
 }

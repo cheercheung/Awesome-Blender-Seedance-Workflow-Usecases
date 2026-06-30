@@ -20,6 +20,7 @@ OWNER = "cheercheung"
 MODEL = "Blender + Seedance"
 MODEL_ID = "seedance-2.0-reference-to-video"
 CTA_ANCHOR = "#quick-start"
+RAW_MEDIA_BASE = f"https://github.com/{OWNER}/{REPO}/raw/main/"
 
 LANGS = [
     ("en", "README.md", "English", "images/en.png"),
@@ -152,77 +153,77 @@ OVERVIEW_LINES = {
         "**{count} selected Blender + Seedance cases** from public creator posts in the owner-provided source dataset.",
         "Covers camera control, Blender previs, multi-character blocking, action choreography, Blender MCP, Codex/Claude-assisted blockouts, FBX/Mixamo references, ComfyUI/style transfer, and known limitations.",
         "Each case includes the original source, creator attribution, a concise takeaway, evidence type, and publication date.",
-        "The public list was reduced from 35 candidates to 20 primary cases after manual duplicate and originality review.",
+        "The public list was rebuilt from the 35-candidate audit plus the requested new links into {count} primary cases.",
         "Use this repo to inspect practical workflows before routing users to the final EvoLink MCP + skill landing page.",
     ],
     "es": [
         "**{count} casos Blender + Seedance seleccionados** a partir de publicaciones públicas de creadores en el dataset proporcionado por el propietario.",
         "Cubre control de cámara, previs en Blender, blocking de varios personajes, coreografía de acción, Blender MCP, blockouts asistidos por Codex/Claude, referencias FBX/Mixamo, ComfyUI/style transfer y límites conocidos.",
         "Cada caso incluye fuente original, atribución al creador, aprendizaje breve, tipo de evidencia y fecha de publicación.",
-        "La lista pública se redujo de 35 candidatos a 20 casos primarios tras una revisión manual de duplicados y originalidad.",
+        "La lista pública se reconstruyó desde la auditoría de 35 candidatos y los nuevos enlaces solicitados hasta {count} casos primarios.",
         "Usa este repo para revisar workflows prácticos antes de enviar usuarios a la landing final de EvoLink MCP + skill.",
     ],
     "pt": [
         "**{count} casos Blender + Seedance selecionados** a partir de posts públicos de criadores no dataset fornecido pelo proprietário.",
         "Cobre controle de câmera, previs no Blender, blocking de múltiplos personagens, coreografia de ação, Blender MCP, blockouts assistidos por Codex/Claude, referências FBX/Mixamo, ComfyUI/style transfer e limites conhecidos.",
         "Cada caso inclui fonte original, crédito ao criador, resumo acionável, tipo de evidência e data de publicação.",
-        "A lista pública foi reduzida de 35 candidatos para 20 casos primários após revisão manual de duplicidade e originalidade.",
+        "A lista pública foi reconstruída a partir da auditoria de 35 candidatos e dos novos links solicitados até {count} casos primários.",
         "Use este repo para avaliar workflows práticos antes de direcionar usuários à landing final de EvoLink MCP + skill.",
     ],
     "ja": [
         "**{count} 件の Blender + Seedance ケース** を、所有者提供の公開クリエイター投稿データから選定しました。",
         "カメラ制御、Blender previs、複数キャラクターのブロッキング、アクション設計、Blender MCP、Codex/Claude 支援 blockout、FBX/Mixamo 参照、ComfyUI/style transfer、既知の制限を扱います。",
         "各ケースには元ソース、作者クレジット、短い要点、証拠タイプ、公開日を含めています。",
-        "公開リストは、重複とオリジナリティの手動レビュー後に 35 件から 20 件へ絞りました。",
+        "公開リストは、35 件の監査結果と追加依頼されたリンクから {count} 件の主要ケースとして再構成しました。",
         "最終的な EvoLink MCP + skill landing に誘導する前に、実用 workflow を確認するための repo です。",
     ],
     "ko": [
         "소유자가 제공한 공개 제작자 게시물 데이터에서 **{count}개의 Blender + Seedance 사례**를 선별했습니다.",
         "카메라 제어, Blender 프리비즈, 다중 캐릭터 블로킹, 액션 안무, Blender MCP, Codex/Claude 지원 blockout, FBX/Mixamo 레퍼런스, ComfyUI/style transfer, 알려진 한계를 다룹니다.",
         "각 사례에는 원본 출처, 제작자 표기, 간단한 takeaway, 증거 유형, 게시일이 포함됩니다.",
-        "공개 목록은 중복성과 원작성 수동 검토를 거쳐 35개 후보에서 20개 주요 사례로 줄였습니다.",
+        "공개 목록은 35개 후보 감사와 요청된 신규 링크를 반영해 {count}개 주요 사례로 재구성했습니다.",
         "최종 EvoLink MCP + skill 랜딩으로 보내기 전에 실제 workflow를 검토하기 위한 repo입니다.",
     ],
     "de": [
         "**{count} ausgewählte Blender + Seedance Fälle** aus öffentlichen Creator-Posts im vom Owner bereitgestellten Datensatz.",
         "Behandelt Kamerasteuerung, Blender-Previs, Multi-Character-Blocking, Action-Choreografie, Blender MCP, Codex/Claude-gestützte Blockouts, FBX/Mixamo-Referenzen, ComfyUI/style transfer und bekannte Grenzen.",
         "Jeder Fall enthält Originalquelle, Creator-Zuordnung, kompaktes Takeaway, Evidenztyp und Veröffentlichungsdatum.",
-        "Die öffentliche Liste wurde nach manueller Prüfung auf Duplikate und Originalität von 35 Kandidaten auf 20 Primärfälle reduziert.",
+        "Die öffentliche Liste wurde aus dem 35-Kandidaten-Audit und den angefragten neuen Links zu {count} Primärfällen neu aufgebaut.",
         "Nutze dieses Repo, um praktische Workflows zu prüfen, bevor Nutzer zur finalen EvoLink MCP + Skill Landingpage geführt werden.",
     ],
     "fr": [
         "**{count} cas Blender + Seedance sélectionnés** depuis des publications publiques de créateurs dans le dataset fourni par le propriétaire.",
         "Couvre contrôle caméra, previs Blender, blocking multi-personnages, chorégraphie d'action, Blender MCP, blockouts assistés par Codex/Claude, références FBX/Mixamo, ComfyUI/style transfer et limites connues.",
         "Chaque cas inclut la source originale, l'attribution créateur, un résumé exploitable, le type de preuve et la date de publication.",
-        "La liste publique a été réduite de 35 candidats à 20 cas principaux après revue manuelle des doublons et de l'originalité.",
+        "La liste publique a été reconstruite depuis l'audit des 35 candidats et les nouveaux liens demandés en {count} cas principaux.",
         "Utilisez ce repo pour examiner des workflows pratiques avant de diriger les utilisateurs vers la landing EvoLink MCP + skill finale.",
     ],
     "tr": [
         "Sahibin sağladığı herkese açık creator postlarından **{count} Blender + Seedance vakası** seçildi.",
         "Kamera kontrolü, Blender previs, çok karakterli blocking, aksiyon koreografisi, Blender MCP, Codex/Claude destekli blockout'lar, FBX/Mixamo referansları, ComfyUI/style transfer ve bilinen sınırları kapsar.",
         "Her vaka orijinal kaynak, creator atfı, kısa takeaway, kanıt tipi ve yayın tarihini içerir.",
-        "Herkese açık liste, manuel tekrar ve özgünlük incelemesinden sonra 35 adaydan 20 ana vakaya indirildi.",
+        "Herkese açık liste, 35 adaylık denetim ve istenen yeni linklerle {count} ana vaka olarak yeniden kuruldu.",
         "Bu repo, kullanıcıları final EvoLink MCP + skill landing sayfasına yönlendirmeden önce pratik workflow'ları incelemek içindir.",
     ],
     "zh-CN": [
         "**{count} 个精选 Blender + Seedance 案例**，来自用户提供数据集中公开创作者帖子。",
         "覆盖相机控制、Blender previs、多角色 blocking、动作编排、Blender MCP、Codex/Claude 辅助 blockout、FBX/Mixamo 参考、ComfyUI/style transfer 和已知限制。",
         "每个案例都包含原始来源、创作者署名、简明 takeaway、证据类型和发布日期。",
-        "公开列表已经过人工重复与原创性审计，从 35 个候选收敛为 20 个主案例。",
+        "公开列表基于 35 个候选审计结果和这次新增链接，重建为 {count} 个主案例。",
         "这个仓库用于先展示真实工作流，再把用户引导到最终 EvoLink MCP + skill 落地页。",
     ],
     "zh-TW": [
         "**{count} 個精選 Blender + Seedance 案例**，來自使用者提供資料集中公開創作者貼文。",
         "涵蓋相機控制、Blender previs、多角色 blocking、動作編排、Blender MCP、Codex/Claude 輔助 blockout、FBX/Mixamo 參考、ComfyUI/style transfer 和已知限制。",
         "每個案例都包含原始來源、創作者署名、簡明 takeaway、證據類型和發布日期。",
-        "公開列表已經過人工重複與原創性審計，從 35 個候選收斂為 20 個主案例。",
+        "公開列表基於 35 個候選審計結果和這次新增連結，重建為 {count} 個主案例。",
         "這個倉庫用於先展示真實工作流，再把使用者引導到最終 EvoLink MCP + skill 落地頁。",
     ],
     "ru": [
         "**{count} отобранных кейсов Blender + Seedance** из публичных постов авторов в датасете владельца.",
         "Охватывает управление камерой, Blender previs, блокинг нескольких персонажей, постановку экшена, Blender MCP, blockout с Codex/Claude, FBX/Mixamo references, ComfyUI/style transfer и известные ограничения.",
         "Каждый кейс содержит исходный пост, автора, краткий вывод, тип доказательства и дату публикации.",
-        "Публичный список был сокращен с 35 кандидатов до 20 основных кейсов после ручной проверки дубликатов и оригинальности.",
+        "Публичный список пересобран из аудита 35 кандидатов и новых ссылок в {count} основных кейсов.",
         "Этот repo помогает изучить реальные workflows перед переходом к финальной landing page EvoLink MCP + skill.",
     ],
 }
@@ -231,12 +232,9 @@ SELECTED_SOURCE_INDICES = [
     1,
     2,
     3,
-    5,
     6,
     7,
-    8,
     9,
-    10,
     14,
     19,
     20,
@@ -249,6 +247,45 @@ SELECTED_SOURCE_INDICES = [
     31,
     32,
 ]
+
+CASE_LABEL_FOR_SOURCE_INDEX = {
+    1: 1,
+    2: 2,
+    14: 3,
+    28: 4,
+    32: 5,
+    3: 6,
+    6: 8,
+    19: 9,
+    9: 10,
+    24: 11,
+    7: 13,
+    23: 14,
+    20: 15,
+    21: 16,
+    25: 17,
+    29: 18,
+    31: 20,
+}
+
+MEDIA_BY_SOURCE_INDEX = {
+    1: ["media/case1.mp4"],
+    2: ["media/case2.mp4"],
+    14: ["media/case3.mp4"],
+    28: ["media/case4.mp4", "media/case29.mp4"],
+    32: ["media/case5.mp4"],
+    3: ["media/case6.mp4"],
+    19: ["media/case9.mp4"],
+    9: ["media/case10.mp4"],
+    24: ["media/case11.mp4"],
+    7: ["media/case13.jpg", "media/case13.mp4", "media/case19.mp4"],
+    23: ["media/case14.mp4"],
+    20: ["media/case15.jpg", "media/case15.mp4"],
+    21: ["media/case16.mp4"],
+    25: ["media/case17.mp4"],
+    29: ["media/case18.mp4"],
+    31: ["media/case20.mp4"],
+}
 
 CATEGORY_FOR_CASE = {
     1: "camera-control",
@@ -327,12 +364,12 @@ EN_TITLES = {
 }
 
 EN_TAKEAWAYS = {
-    1: "A complete direction workflow: create a start frame, block the shot with gray boxes in Blender, animate only the camera and timing, then use that blockout as Seedance's motion reference.",
+    1: "A merged direction workflow: use the full gray-box method from the original case, then push it into action-previs timing, speed, shake, and spatial choreography before Seedance generation.",
     2: "A compact precision-camera recipe: Blender supplies the camera move, Midjourney supplies the start frame, and Seedance follows the motion reference.",
     3: "A dialogue-shot workflow where Blender is used to match character poses and camera motion before Seedance generates the performed scene.",
     5: "An action-previs case showing how rough timing, speed, camera shake, and spatial choreography can be planned in Blender before Seedance renders the shot.",
     6: "A handheld-follow case where Blender controls how a character travels through space and Seedance carries the gritty camera move into the final video.",
-    7: "A reproducible prompt case with the start frame, Blender reference video, Seedance version, duration, and movement constraints all spelled out.",
+    7: "A merged reproducibility and troubleshooting case: the setup spells out the reference-video conditions, while the paired test records where camera/rhythm control worked and foot motion failed.",
     8: "A limitation case: Blender successfully controls camera, rhythm, and subject path, while natural foot motion still needs better handling.",
     9: "An agentic Blender MCP case where Codex builds a simple 3D market, cat motion, camera framing, and an MP4 reference for Seedance.",
     10: "A reference-mapping case that uses Blender blocking plus multiple character and environment references to tell Seedance which figure should become which character.",
@@ -350,12 +387,12 @@ EN_TAKEAWAYS = {
 }
 
 EN_NOTES = {
-    1: "The post describes the whole loop from image-model start frame to crude Blender camera blockout and Seedance motion-reference generation.",
+    1: "Merged with former case 7: together these sources show the full gray-box workflow and the action-previs variant with rough timing, speed, shake, and spatial choreography.",
     2: "The source gives a clear three-step workflow and reports that the generated video tracks the Blender camera move closely.",
     3: "The source adds multi-character dialogue and pose matching, making it distinct from single-character camera-control demos.",
     5: "The source focuses on action timing, speed, rough camera shake, and spatial choreography rather than only camera path.",
     6: "The source moves the character through the scene while the camera follows, which makes it useful for handheld movement shots.",
-    7: "The post includes setup conditions and prompt constraints, so it can be reused as a reproducible reference-video case.",
+    7: "Merged with former case 19: the pair keeps both the reproducible setup and the limitation note about foot sliding.",
     8: "This is kept as a troubleshooting case because it names what Blender controlled well and where the motion still failed.",
     9: "The author says the test was inspired by another creator, but the described scene, motion, camera, and export process are their own experiment.",
     10: "The source explains how to pair a blocking reference with multiple still references so Seedance maps the moving figures correctly.",
@@ -366,19 +403,19 @@ EN_NOTES = {
     23: "The source is useful for beginners because it names Mixamo as a practical motion source for Blender reference videos.",
     24: "The post is valuable as a beginner Codex workflow: the user delegates architecture and camera work to Codex before Seedance.",
     25: "The source directly frames the workflow as Blender 3D previz transformed into an anime render while keeping camera motion.",
-    28: "The post gives a concise workflow with concrete artifacts: viewport preview, first-frame image, and Seedance reference video.",
+    28: "The post gives a concise workflow with concrete artifacts: viewport preview, first-frame image, and Seedance reference video. The requested case 29 media is an exact duplicate of this video, so it is linked here instead of becoming a second public case.",
     29: "The source gives a specific FBX-to-clay-pass process and includes camera keyframing before reference export.",
     31: "This case covers an important variant where reference images replace the usual start-frame dependency.",
     32: "The source is useful because it separates motion control from world/style variation using the same reference video.",
 }
 
 ZH_TAKEAWAYS = {
-    1: "完整导演流程：先做起始帧，再用 Blender 灰盒搭镜头、只动画相机和节奏，最后把 blockout 作为 Seedance motion reference。",
+    1: "合并后的导演流程：保留原始灰盒方法，再加入动作预演里的时序、速度、抖动和空间调度，最后交给 Seedance 生成。",
     2: "精确运镜的三步配方：Blender 负责相机运动，Midjourney 负责起始帧，Seedance 按参考运动生成视频。",
     3: "多角色对话镜头：先在 Blender 里匹配角色姿势和相机运动，再让 Seedance 生成表演结果。",
     5: "动作戏预演：用 Blender 规划粗略时序、速度、抖动和空间调度，再交给 Seedance 渲染成片。",
     6: "手持跟拍：Blender 控制角色穿越空间和相机跟随，Seedance 把这种粗粝跟拍感带到最终视频。",
-    7: "可复现 prompt 案例：起始帧、Blender 参考视频、Seedance 版本、时长和运动约束都写清楚。",
+    7: "合并后的复现与排查案例：一条写清参考视频条件，另一条记录相机/节奏控制有效但脚步动作仍会失败。",
     8: "限制排查案例：Blender 能控制相机、节奏和移动路径，但自然脚步动作仍然容易出问题。",
     9: "Agentic Blender MCP 案例：Codex 生成简易市场、猫的动作、相机构图，并导出给 Seedance 的 MP4 参考。",
     10: "参考映射案例：用 Blender blocking 加多张角色/环境参考，告诉 Seedance 哪个运动物体对应哪个角色。",
@@ -403,6 +440,185 @@ TYPE_FOR_CATEGORY = {
     "production-pipeline": "Integration",
     "limitations": "Limit",
 }
+
+MANUAL_CASES = [
+    {
+        "case": 21,
+        "source_index": None,
+        "id": "2071595581508563168",
+        "url": "https://x.com/reidhannaford/status/2071595581508563168",
+        "author": "@reidhannaford",
+        "author_url": "https://x.com/reidhannaford",
+        "date": "2026-06-29",
+        "category": "character-action",
+        "title": "Ambush Scene Previs Beyond a Simple Camera Move",
+        "title_zh": "伏击场景 previs + Seedance 动作调度",
+        "evidence_type": "Demo",
+        "quality_tier": "strong",
+        "source_role": "primary_original",
+        "why_selected_zh": "明确把 Midjourney 起始图、Blender blocking/相机动画和 Seedance 组合，用于复杂伏击场景而不只是简单运镜。",
+        "reuse_angle_zh": "适合做复杂场景先解决 staging、timing 和 camera movement，再生成镜头的案例。",
+        "source_text": "Seedance 2.0 is insane. Blender previs is having a moment in AI filmmaking for a reason. I wanted to see how far I could push the workflow beyond a simple camera move in an ambush scene. The workflow: make a start image in Midjourney, block it out in Blender, animate the camera, feed both to Seedance.",
+        "takeaway_en": "An ambush-scene case showing how Blender previs can solve staging, timing, and camera movement before Seedance generates the shot.",
+        "takeaway_zh": "伏击场景案例：先用 Blender previs 解决 staging、timing 和 camera movement，再交给 Seedance 生成镜头。",
+        "note_en": "Requested as case 21. Kept as a distinct Reid Hannaford example because it pushes the workflow beyond a simple camera move into scene staging.",
+        "local_media": ["media/case21.mp4"],
+    },
+    {
+        "case": 22,
+        "source_index": None,
+        "id": "2071401550845481090",
+        "url": "https://x.com/JoshDaws/status/2071401550845481090",
+        "author": "@JoshDaws",
+        "author_url": "https://x.com/JoshDaws",
+        "date": "2026-06-29",
+        "category": "agentic-mcp",
+        "title": "Claude-Built Blender MCP Previs in Minutes",
+        "title_zh": "Claude 用 Blender MCP 几分钟生成 previs",
+        "evidence_type": "Integration",
+        "quality_tier": "medium",
+        "source_role": "primary_original",
+        "why_selected_zh": "说明 Claude 通过 Blender MCP 为镜头创建 previs，并强调 2-3 分钟完成。",
+        "reuse_angle_zh": "适合做 agent 快速搭建镜头预演的短案例。",
+        "source_text": "Yup. Had Claude use Blender MCP to create previs for a shot in the next installment of Mary Sue. Worked like a charm. Took Claude 2-3 minutes to make this.",
+        "takeaway_en": "A fast agentic-previs case where Claude uses Blender MCP to build a shot reference in two to three minutes.",
+        "takeaway_zh": "快速 agentic previs 案例：Claude 通过 Blender MCP 在 2-3 分钟内搭出镜头参考。",
+        "note_en": "Requested as case 22. Kept because it demonstrates speed and agent control rather than manual Blender work.",
+        "local_media": ["media/case22.mp4"],
+    },
+    {
+        "case": 23,
+        "source_index": None,
+        "id": "2071380621214224403",
+        "url": "https://x.com/kan_mi_no9/status/2071380621214224403",
+        "author": "@kan_mi_no9",
+        "author_url": "https://x.com/kan_mi_no9",
+        "date": "2026-06-28",
+        "category": "reference-prompt",
+        "title": "Position-Only Reference Control for a Faster Scene",
+        "title_zh": "只保留位置关系的参考控制",
+        "evidence_type": "Tutorial",
+        "quality_tier": "medium",
+        "source_role": "primary_original",
+        "why_selected_zh": "说明通过调低参考视频对动作的约束、聚焦位置关系，补回 Seedance 的速度感和动态感。",
+        "reuse_angle_zh": "适合做 reference adherence 调参案例。",
+        "source_text": "A derivative experiment from a previous split-body test. The author notes that by narrowing the reference degree toward positional relationships, Seedance came closer to the intended speed and image even when the original previs was not fast.",
+        "takeaway_en": "A reference-weighting case: keep the reference useful for positions while letting the prompt recover speed and dynamism.",
+        "takeaway_zh": "参考权重案例：只让参考视频约束位置关系，再用 prompt 补回速度感和动态感。",
+        "note_en": "Requested as case 23. Kept with the paired kan_mi_no9 test as a distinct reference-control variant.",
+        "local_media": ["media/case23.mp4"],
+    },
+    {
+        "case": 24,
+        "source_index": None,
+        "id": "2070617538745229546",
+        "url": "https://x.com/gcduncombe/status/2070617538745229546",
+        "author": "@gcduncombe",
+        "author_url": "https://x.com/gcduncombe",
+        "date": "2026-06-26",
+        "category": "reference-prompt",
+        "title": "Physical Toy Reference Instead of 3D Software",
+        "title_zh": "用实体玩具替代 3D 软件做参考",
+        "evidence_type": "Demo",
+        "quality_tier": "medium",
+        "source_role": "primary_original",
+        "why_selected_zh": "提出不打开 3D 软件时也可以用玩具拍摄运动/构图参考，作为 Blender+AI render 讨论的替代路径。",
+        "reuse_angle_zh": "适合做 physical previs / toy reference 的轻量替代案例。",
+        "source_text": "Everyone is talking about Blender + an AI rendering step but if you don't feel like cracking open 3d software, just use your kids' toys.",
+        "takeaway_en": "A physical-reference case: use toys as quick motion and staging references when opening Blender is too much overhead.",
+        "takeaway_zh": "实体参考案例：当不想打开 Blender 时，用玩具快速拍摄运动和 staging 参考。",
+        "note_en": "Requested as case 24. Kept because it expands the reference-video idea beyond software-only previs.",
+        "local_media": ["media/case24.mp4"],
+    },
+    {
+        "case": 25,
+        "source_index": None,
+        "id": "2071002538703479089",
+        "url": "https://x.com/tea_story_hoshi/status/2071002538703479089",
+        "author": "@tea_story_hoshi",
+        "author_url": "https://x.com/tea_story_hoshi",
+        "date": "2026-06-27",
+        "category": "limitations",
+        "title": "Toy Reference Prompt Reinforcement and NG Example",
+        "title_zh": "玩具参考 + prompt 补强 + NG 对照",
+        "evidence_type": "Limit",
+        "quality_tier": "strong",
+        "source_role": "primary_original",
+        "why_selected_zh": "同时给出成功例和 NG 例：解析参考视频并用 prompt 补强会更自然，直接忠实参考则动作和姿势容易僵硬。",
+        "reuse_angle_zh": "适合做 reference video troubleshooting 与 prompt reinforcement 案例。",
+        "source_text": "The author uses toy-shot references with Seedance 2 Mini, compares prompt-reinforced outputs against an NG example, and notes that direct reference adherence can make movement and poses feel stiff.",
+        "takeaway_en": "A troubleshooting case showing why reference videos often need prompt reinforcement instead of raw imitation.",
+        "takeaway_zh": "排查案例：参考视频通常需要 prompt 补强，不能只让模型机械照搬。",
+        "note_en": "Requested as case 25. Kept because it includes both working examples and a failed comparison.",
+        "local_media": ["media/case25.jpg", "media/case25.mp4"],
+    },
+    {
+        "case": 26,
+        "source_index": None,
+        "id": "2071168235022827587",
+        "url": "https://x.com/kan_mi_no9/status/2071168235022827587",
+        "author": "@kan_mi_no9",
+        "author_url": "https://x.com/kan_mi_no9",
+        "date": "2026-06-28",
+        "category": "reference-prompt",
+        "title": "Reference Control for a Specific Failed Prompt Scene",
+        "title_zh": "用参考控制修复 prompt 反复失败的场景",
+        "evidence_type": "Demo",
+        "quality_tier": "medium",
+        "source_role": "primary_original",
+        "why_selected_zh": "说明虽然会损失部分 Seedance 自由运镜和动态，但在必须得到特定画面的场景里很有用。",
+        "reuse_angle_zh": "适合做“prompt 失败时用 reference 兜底”的案例。",
+        "source_text": "The author notes that reference control can reduce some of Seedance 2.0's camera freedom and dynamism, but it helped in a work scene where prompt-only attempts repeatedly failed.",
+        "takeaway_en": "A control fallback case: when prompt-only generation fails, use a reference to force the scene even if some dynamism is reduced.",
+        "takeaway_zh": "控制兜底案例：prompt-only 反复失败时，用 reference 强制场景成立，即使会损失部分动态。",
+        "note_en": "Requested as case 26. Kept as the practical counterpart to the later kan_mi_no9 variation case.",
+        "local_media": ["media/case26.mp4"],
+    },
+    {
+        "case": 27,
+        "source_index": None,
+        "id": "2070512271391068287",
+        "url": "https://x.com/craftcapitallab/status/2070512271391068287",
+        "author": "@craftcapitallab",
+        "author_url": "https://x.com/craftcapitallab",
+        "date": "2026-06-26",
+        "category": "reference-prompt",
+        "title": "Character Proportion and Simple Background Tips",
+        "title_zh": "角色比例与简化背景的稳定性技巧",
+        "evidence_type": "Tutorial",
+        "quality_tier": "medium",
+        "source_role": "primary_original",
+        "why_selected_zh": "总结了让参考更稳定的具体技巧：figure 不只调头身，还要让手脚体积贴合角色设计；不需要对齐的背景尽量简单。",
+        "reuse_angle_zh": "适合做 Blender/参考视频的稳定性 checklist。",
+        "source_text": "The author shares practical tips: match not just body height but arm and leg volume to the character design, and keep backgrounds that do not need matching as simple models.",
+        "takeaway_en": "A stability checklist case: match character proportions beyond height and simplify any background that does not need precise alignment.",
+        "takeaway_zh": "稳定性 checklist：角色比例不只看头身，还要匹配手脚体积；无须对齐的背景尽量简化。",
+        "note_en": "Requested as case 27. Kept because it offers specific, reusable setup advice.",
+        "local_media": ["media/case27.mp4"],
+    },
+    {
+        "case": 28,
+        "source_index": None,
+        "id": "2070577334701473800",
+        "url": "https://x.com/fatboypink/status/2070577334701473800",
+        "author": "@fatboypink",
+        "author_url": "https://x.com/fatboypink",
+        "date": "2026-06-26",
+        "category": "limitations",
+        "title": "Cloth Physics Stress Test with Blender and Seedance",
+        "title_zh": "Blender + Seedance 布料物理压力测试",
+        "evidence_type": "Limit",
+        "quality_tier": "medium",
+        "source_role": "primary_original",
+        "why_selected_zh": "明确把目标设为测试 Seedance 对 cloth physics 的处理能力，并说明这是较难解决的输出。",
+        "reuse_angle_zh": "适合做 cloth physics / complex motion stress test 案例。",
+        "source_text": "Another Blender + Seedance production testing how well Seedance handled cloth physics. The author says it was the most challenging output to solve and still has room for exploration.",
+        "takeaway_en": "A cloth-physics stress test showing where Blender-guided Seedance can work but still needs iteration for difficult motion.",
+        "takeaway_zh": "布料物理压力测试：Blender-guided Seedance 可用，但复杂运动仍需要多轮迭代。",
+        "note_en": "Requested as case 28. Kept as a concrete limitation/stress-test case.",
+        "local_media": ["media/case28.mp4"],
+    },
+]
 
 LOCALE = {
     "en": {
@@ -893,15 +1109,53 @@ def source_notes(item: dict, index: int, lang: str) -> str:
     )
 
 
-def local_media_links(case_idx: int) -> list[str]:
-    media_dir = ROOT / "media" / f"case-{case_idx:02d}"
-    if not media_dir.exists():
-        return []
-    return [str(path.relative_to(ROOT)) for path in sorted(media_dir.iterdir()) if path.is_file()]
+def valid_media_links(paths: list[str]) -> list[str]:
+    return [path for path in paths if (ROOT / path).exists()]
 
 
-def media_notes(case_idx: int, lang: str) -> str:
-    links = local_media_links(case_idx)
+def record_title(record: dict, lang: str) -> str:
+    if lang == "zh-CN":
+        return record.get("title_zh") or record["title"]
+    if lang == "zh-TW":
+        return zh_tw(record.get("title_zh") or record["title"])
+    return record["title"]
+
+
+def record_takeaway(record: dict, lang: str) -> str:
+    if lang == "zh-CN":
+        return record.get("takeaway_zh") or record.get("takeaway_en") or record["title"]
+    if lang == "zh-TW":
+        return zh_tw(record.get("takeaway_zh") or record.get("takeaway_en") or record["title"])
+    return record.get("takeaway_en") or record["title"]
+
+
+def record_notes(record: dict, lang: str) -> str:
+    if lang == "zh-CN":
+        why = clean(record.get("why_selected_zh", ""))
+        reuse = clean(record.get("reuse_angle_zh", ""))
+        lines = []
+        if why:
+            lines.append(f"- {LOCALE[lang]['notes_prefix']}：{why}")
+        if reuse:
+            lines.append(f"- 复用角度：{reuse}")
+        return "\n".join(lines)
+    if lang == "zh-TW":
+        why = clean(record.get("why_selected_zh", ""))
+        reuse = clean(record.get("reuse_angle_zh", ""))
+        lines = []
+        if why:
+            lines.append(f"- {LOCALE[lang]['notes_prefix']}：{zh_tw(why)}")
+        if reuse:
+            lines.append(f"- 複用角度：{zh_tw(reuse)}")
+        return "\n".join(lines)
+    note = record.get("note_en") or "Kept after manual duplicate and originality review."
+    return (
+        f"- {LOCALE[lang]['notes_prefix']}: {note}\n"
+        f"- Audit status: kept after manual duplicate and originality review."
+    )
+
+
+def media_notes(links: list[str], lang: str) -> str:
     if not links:
         return ""
     label = {
@@ -917,7 +1171,7 @@ def media_notes(case_idx: int, lang: str) -> str:
         "zh-TW": "本地媒體",
         "ru": "Локальные медиа",
     }[lang]
-    rendered = ", ".join(f"[{Path(path).name}]({path})" for path in links)
+    rendered = ", ".join(f"[{Path(path).name}]({RAW_MEDIA_BASE}{path})" for path in links)
     return f"- {label}: {rendered}"
 
 
@@ -928,17 +1182,12 @@ def author_link(item: dict) -> str:
 
 def curated_records(items: list[dict]) -> list[dict]:
     records = []
-    staged = []
     for source_idx in SELECTED_SOURCE_INDICES:
         item = items[source_idx - 1]
         cat = CATEGORY_FOR_CASE[source_idx]
-        staged.append((cat, source_idx, item))
-    order = {cat: pos for pos, cat in enumerate(CATEGORY_META)}
-    staged.sort(key=lambda entry: (order[entry[0]], entry[1]))
-    for idx, (cat, source_idx, item) in enumerate(staged, 1):
         records.append(
             {
-                "case": idx,
+                "case": CASE_LABEL_FOR_SOURCE_INDEX[source_idx],
                 "source_index": source_idx,
                 "id": item["id"],
                 "url": item["url"],
@@ -955,10 +1204,16 @@ def curated_records(items: list[dict]) -> list[dict]:
                 "why_selected_zh": item.get("why_selected_zh"),
                 "reuse_angle_zh": item.get("reuse_angle_zh"),
                 "source_text": item.get("text"),
-                "local_media": local_media_links(idx),
+                "takeaway_en": EN_TAKEAWAYS[source_idx],
+                "takeaway_zh": ZH_TAKEAWAYS[source_idx],
+                "note_en": EN_NOTES[source_idx],
+                "local_media": valid_media_links(MEDIA_BY_SOURCE_INDEX.get(source_idx, [])),
             }
         )
-    return records
+    records.extend(MANUAL_CASES)
+    for record in records:
+        record["category_name"] = CATEGORY_META[record["category"]][1]
+    return sorted(records, key=lambda record: record["case"])
 
 
 def render_badges(img_path: str) -> str:
@@ -1051,6 +1306,11 @@ def grouped_records(records: list[dict]) -> dict[str, list[dict]]:
     return dict(grouped)
 
 
+def case_labels_summary(recs: list[dict]) -> str:
+    labels = [str(rec["case"]) for rec in recs]
+    return "Case " + ", ".join(labels)
+
+
 def render_menu(labels: dict, records: list[dict], lang: str) -> str:
     grouped = grouped_records(records)
     lines = [
@@ -1062,7 +1322,7 @@ def render_menu(labels: dict, records: list[dict], lang: str) -> str:
     for cat, recs in grouped.items():
         emoji, name = CATEGORY_META[cat]
         display = category_display(cat, lang)
-        lines.append(f"| [{emoji} {display}](#{slug(name)}) | Case {recs[0]['case']}-{recs[-1]['case']} |")
+        lines.append(f"| [{emoji} {display}](#{slug(name)}) | {case_labels_summary(recs)} |")
     lines.append(f"| [🙏 {labels['ack']}](#acknowledge) | Credits and correction policy |")
     lines.append("")
     for cat, recs in grouped.items():
@@ -1078,9 +1338,8 @@ def render_menu(labels: dict, records: list[dict], lang: str) -> str:
             ]
         )
         for rec in recs:
-            item = source_items()[rec["source_index"] - 1]
-            title = local_case_title(item, rec["source_index"], lang)
-            lines.append(f"| [{title}](#case-{rec['case']}) | {usage_takeaway(item, rec['source_index'], lang).strip('*')} | {rec['evidence_type']} |")
+            title = record_title(rec, lang)
+            lines.append(f"| [{title}](#case-{rec['case']}) | {record_takeaway(rec, lang).strip('*')} | {rec['evidence_type']} |")
         lines.append("")
     return "\n".join(lines).rstrip()
 
@@ -1106,19 +1365,16 @@ def render_cases(labels: dict, items: list[dict], lang: str) -> str:
         chunks.append("")
         for rec in recs:
             idx = rec["case"]
-            source_idx = rec["source_index"]
-            item = items[source_idx - 1]
-            title = local_case_title(item, source_idx, lang)
-            author = item["author"]["username"]
+            title = record_title(rec, lang)
             chunks.extend(
                 [
                     f'<a id="case-{idx}"></a>',
-                    f"### Case {idx}: [{title}]({item['url']}) (by [@{author}]({author_link(item)}))",
+                    f"### Case {idx}: [{title}]({rec['url']}) (by [{rec['author']}]({rec['author_url']}))",
                     "",
-                    f"**{usage_takeaway(item, source_idx, lang)}**",
+                    f"**{record_takeaway(rec, lang)}**",
                     "",
-                    source_notes(item, source_idx, lang),
-                    media_notes(idx, lang),
+                    record_notes(rec, lang),
+                    media_notes(rec.get("local_media", []), lang),
                     "",
                     f"{labels['type']}: {rec['evidence_type']} | {labels['date']}: {rec['date']}",
                     "",
@@ -1345,6 +1601,12 @@ EXPECTED_IMAGES = {[img for _, _, _, img in LANGS]!r}
 def fail(msg):
     raise SystemExit(f"FAIL: {{msg}}")
 
+curated = json.loads((ROOT / "blender-seedance-usecase-curated.json").read_text())
+if curated["metadata"].get("selected_count") != EXPECTED_CASES:
+    fail("curated selected_count does not match README case count")
+expected_labels = [str(item["case"]) for item in curated["items"]]
+expected_label_set = set(expected_labels)
+
 for file in FILES:
     p = ROOT / file
     if not p.exists():
@@ -1356,8 +1618,10 @@ for file in FILES:
         fail(f"{{file}} has {{len(anchors)}} anchors, expected {{EXPECTED_CASES}}")
     if anchors != heads:
         fail(f"{{file}} anchors and case headings differ")
-    if anchors != [str(i) for i in range(1, EXPECTED_CASES + 1)]:
-        fail(f"{{file}} anchors are not contiguous")
+    if len(set(anchors)) != len(anchors):
+        fail(f"{{file}} contains duplicate case anchors")
+    if set(anchors) != expected_label_set:
+        fail(f"{{file}} anchors do not match curated case labels")
     if "## 📊" not in text or "## ⚡" not in text or "## 📑" not in text or "## 🙏" not in text:
         fail(f"{{file}} missing required usecase sections")
     if text.count("| Date: ") + text.count("| Fecha: ") + text.count("| Data: ") + text.count("| Datum: ") + text.count("| Tarih: ") + text.count("| 日期: ") + text.count("| Дата: ") < EXPECTED_CASES:
@@ -1370,10 +1634,6 @@ for img in EXPECTED_IMAGES:
 for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md"]:
     if not (ROOT / required).exists():
         fail(f"missing {{required}}")
-
-curated = json.loads((ROOT / "blender-seedance-usecase-curated.json").read_text())
-if curated["metadata"].get("selected_count") != EXPECTED_CASES:
-    fail("curated selected_count does not match README case count")
 
 media_paths = []
 for item in curated["items"]:

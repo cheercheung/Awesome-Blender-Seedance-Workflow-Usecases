@@ -10,7 +10,7 @@
 
 ## Current State
 
-- Selected public cases: 20
+- Selected public cases: 25
 - Candidate pool before audit: 35
 - Primary CTA: Quick Start workflow with Blender MCP, EvoLink skills, API key, and agent usage
 - Public push: not approved

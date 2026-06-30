@@ -1,6 +1,7 @@
 # Use Case Originality Audit
 
 Date: 2026-06-29
+Updated: 2026-06-30
 
 Scope: manual review of the 35 source posts in `data/primary-use-case-posts.md` and the corresponding curated records. The goal is to separate original creator posts from reposts, thread fragments, repeated variants, and weak non-use-case material before the public README is treated as a final use case repository.
 
@@ -9,12 +10,27 @@ Scope: manual review of the 35 source posts in `data/primary-use-case-posts.md` 
 - Reviewed source text for all 35 candidates one by one.
 - No exact repost or third-party repost was proven from the available source text and local metadata.
 - Several posts are still not good standalone use cases: they are thread continuations, same-author repeated variants, thin showcases, or opinion/speculation rather than an executable workflow.
-- Public primary list should be reduced from 35 to 20 cases.
+- 2026-06-29 baseline: public primary list was reduced from 35 to 20 cases.
+- 2026-06-30 update: the public list was rebuilt to 25 cases after merging case 7 into case 1, merging case 19 into case 13, adding requested cases 21-28, and treating requested case 29 as a duplicate media file for the existing DiabloNemesis case.
 - Removed items must not be described as "stolen" or "reposted" unless later live-source verification proves that. The current evidence supports "not final primary use case" rather than "confirmed repost" for most removed items.
 
-## Final Keep List
+## 2026-06-30 Update
 
-These 20 are kept as primary public use cases because each has a distinct workflow, constraint, or production angle.
+Current public case labels are:
+
+`1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24, 25, 26, 27, 28`
+
+Implementation notes:
+
+- Former case 7 is merged into case 1. Its playable media is now `media/case1.mp4`.
+- Former case 19 is merged into case 13. Its playable media is now linked from case 13 as `media/case19.mp4`.
+- Requested new cases 21-28 were added from the supplied X/Twitter URLs.
+- Requested case 29, `https://x.com/DiabloNemesis/status/2070441923706503380`, is the same source as existing case 4. `media/case4.mp4` and `media/case29.mp4` have the same SHA-256 hash, so case 29 is not duplicated as a separate public use case.
+- The current public README files link 29 local media files through GitHub raw URLs so videos can be opened directly.
+
+## 2026-06-29 Baseline Keep List
+
+These 20 were kept as the 2026-06-29 baseline because each had a distinct workflow, constraint, or production angle. The 2026-06-30 update above supersedes the final public count.
 
 | Source # | Source | Author | Decision | Reason |
 |---:|---|---|---|---|
@@ -74,6 +90,6 @@ These 15 should be removed from the public primary use case list. "Originality" 
   - @SamJWasserman: sources 19, 20. Keep both; they are distinct tactical-blocking and multi-tool agent pipeline cases.
   - @aidoga_lab: sources 7, 8. Keep both; one is a reproducible prompt/setup, the other is a limitation/troubleshooting case.
 
-## Implementation Decision
+## 2026-06-29 Implementation Decision
 
-The public repo should present 20 primary cases. The removed 15 can stay only in internal source data or audit history, not in the 11 public README files or `blender-seedance-usecase-curated.*`.
+The 2026-06-29 public repo presented 20 primary cases. After the 2026-06-30 update, the public repo presents 25 cases and keeps the older removed candidates only in internal source data or audit history, not in the 11 public README files or `blender-seedance-usecase-curated.*`.
