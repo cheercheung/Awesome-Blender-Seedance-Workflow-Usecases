@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FILES = ['README.md', 'README_es.md', 'README_pt.md', 'README_ja.md', 'README_ko.md', 'README_de.md', 'README_fr.md', 'README_tr.md', 'README_zh-TW.md', 'README_zh-CN.md', 'README_ru.md']
 EXPECTED_CASES = 25
 EXPECTED_IMAGES = ['images/en.png', 'images/es.png', 'images/pt.png', 'images/ja.png', 'images/ko.png', 'images/de.png', 'images/fr.png', 'images/tr.png', 'images/zh-tw.png', 'images/zh.png', 'images/ru.png']
+EXPECTED_VIDEO_LABELS = ['case1', 'case2', 'case3', 'case4', 'case5', 'case6', 'case9', 'case10', 'case11', 'case13', 'case14', 'case15', 'case16', 'case17', 'case18', 'case19', 'case20', 'case21', 'case22', 'case23', 'case24', 'case25', 'case26', 'case27', 'case28', 'case29']
 
 def fail(msg):
     raise SystemExit(f"FAIL: {msg}")
@@ -41,9 +42,24 @@ for img in EXPECTED_IMAGES:
     if not (ROOT / img).exists():
         fail(f"missing {img}")
 
-for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md"]:
+for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json"]:
     if not (ROOT / required).exists():
         fail(f"missing {required}")
+
+video_sources = json.loads((ROOT / "data" / "usecase-video-sources.json").read_text())
+if video_sources["metadata"].get("source_rows") != len(EXPECTED_VIDEO_LABELS):
+    fail("video source row count does not match expected workbook rows")
+video_labels = [row["case_label"] for row in video_sources["items"]]
+if video_labels != EXPECTED_VIDEO_LABELS:
+    fail("video source labels do not match expected workbook order")
+if len(set(video_labels)) != len(video_labels):
+    fail("video source labels contain duplicates")
+for row in video_sources["items"]:
+    rel = row.get("local_media")
+    if not rel or not (ROOT / rel).exists():
+        fail(f"missing video source local media {rel}")
+    if not row.get("attachment_url", "").startswith("https://github.com/user-attachments/assets/"):
+        fail(f"unexpected attachment URL for {row.get('case_label')}")
 
 media_paths = []
 for item in curated["items"]:

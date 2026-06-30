@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "generated_at": "2026-06-30T08:34:14Z",
+    "source_workbook": "Book1.xlsx",
+    "source_rows": 26,
+    "localization_policy": "README files use repository-local media URLs; attachment URLs are retained as owner-provided source mapping only."
+  },
+  "items": [
+    {
+      "case_label": "case1",
+      "attachment_url": "https://github.com/user-attachments/assets/c56d8da8-6ebf-430b-b012-0a85e28c092b",
+      "local_media": "media/case1.mp4",
+      "public_case": 1,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case2",
+      "attachment_url": "https://github.com/user-attachments/assets/4bbd421d-dc83-4cae-927d-caa0f7aa143a",
+      "local_media": "media/case2.mp4",
+      "public_case": 2,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case3",
+      "attachment_url": "https://github.com/user-attachments/assets/987cf30d-de8b-4cf1-809a-5deaea8ceff0",
+      "local_media": "media/case3.mp4",
+      "public_case": 3,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case4",
+      "attachment_url": "https://github.com/user-attachments/assets/5b39d216-e84a-4372-83e6-a636bcf9d2fe",
+      "local_media": "media/case4.mp4",
+      "public_case": 4,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case5",
+      "attachment_url": "https://github.com/user-attachments/assets/a6304e6a-d431-4cf7-9dd2-f664594e34c5",
+      "local_media": "media/case5.mp4",
+      "public_case": 5,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case6",
+      "attachment_url": "https://github.com/user-attachments/assets/8f92ed66-1c9f-4fc1-885e-71240add8f56",
+      "local_media": "media/case6.mp4",
+      "public_case": 6,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case9",
+      "attachment_url": "https://github.com/user-attachments/assets/e92e6c44-3fef-4690-bce3-85de50ecf547",
+      "local_media": "media/case9.mp4",
+      "public_case": 9,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case10",
+      "attachment_url": "https://github.com/user-attachments/assets/cff81cc4-0f72-49d8-881f-aee6ded2d5cf",
+      "local_media": "media/case10.mp4",
+      "public_case": 10,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case11",
+      "attachment_url": "https://github.com/user-attachments/assets/247ccf17-4652-4c11-b8dc-efdba1567707",
+      "local_media": "media/case11.mp4",
+      "public_case": 11,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case13",
+      "attachment_url": "https://github.com/user-attachments/assets/2dabc892-946a-4879-9af0-0e21386b16a5",
+      "local_media": "media/case13.mp4",
+      "public_case": 13,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case14",
+      "attachment_url": "https://github.com/user-attachments/assets/3f04e458-a43f-4860-af2b-88eb6dd397cc",
+      "local_media": "media/case14.mp4",
+      "public_case": 14,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case15",
+      "attachment_url": "https://github.com/user-attachments/assets/e1df0f87-e93e-4339-b25a-a7ac4c4f8c4e",
+      "local_media": "media/case15.mp4",
+      "public_case": 15,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case16",
+      "attachment_url": "https://github.com/user-attachments/assets/80143b32-352b-4e86-8c1f-85826d940ba7",
+      "local_media": "media/case16.mp4",
+      "public_case": 16,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case17",
+      "attachment_url": "https://github.com/user-attachments/assets/13ba8e79-0b0a-44b9-be29-9c850bdeb95a",
+      "local_media": "media/case17.mp4",
+      "public_case": 17,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case18",
+      "attachment_url": "https://github.com/user-attachments/assets/bccdbf9a-b816-403f-ae1f-6e43b1e295a3",
+      "local_media": "media/case18.mp4",
+      "public_case": 18,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case19",
+      "attachment_url": "https://github.com/user-attachments/assets/222be6cc-82c7-4953-9abe-70618f6d499b",
+      "local_media": "media/case19.mp4",
+      "public_case": 13,
+      "usage": "merged_or_deduplicated_media"
+    },
+    {
+      "case_label": "case20",
+      "attachment_url": "https://github.com/user-attachments/assets/dfa129d8-f06b-4018-a5bb-c1ed9e78d0d3",
+      "local_media": "media/case20.mp4",
+      "public_case": 20,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case21",
+      "attachment_url": "https://github.com/user-attachments/assets/a254edb3-245d-4bc0-87cc-45bd17e82b99",
+      "local_media": "media/case21.mp4",
+      "public_case": 21,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case22",
+      "attachment_url": "https://github.com/user-attachments/assets/e9c22c6f-690f-4b3b-984c-a18506580c38",
+      "local_media": "media/case22.mp4",
+      "public_case": 22,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case23",
+      "attachment_url": "https://github.com/user-attachments/assets/91721f79-eeaf-4309-bc4a-11e8136c6dba",
+      "local_media": "media/case23.mp4",
+      "public_case": 23,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case24",
+      "attachment_url": "https://github.com/user-attachments/assets/b6a3f37b-ef8c-46c1-ad53-a822797a7c09",
+      "local_media": "media/case24.mp4",
+      "public_case": 24,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case25",
+      "attachment_url": "https://github.com/user-attachments/assets/d333d2d0-8317-49f0-8815-86db783cb578",
+      "local_media": "media/case25.mp4",
+      "public_case": 25,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case26",
+      "attachment_url": "https://github.com/user-attachments/assets/e63c102e-11cf-4381-87fe-8cfe0d96702b",
+      "local_media": "media/case26.mp4",
+      "public_case": 26,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case27",
+      "attachment_url": "https://github.com/user-attachments/assets/71221c71-a7eb-428f-90e5-4a6111aaf890",
+      "local_media": "media/case27.mp4",
+      "public_case": 27,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case28",
+      "attachment_url": "https://github.com/user-attachments/assets/3ab561b2-ef3e-47a5-b2c4-8378a521e491",
+      "local_media": "media/case28.mp4",
+      "public_case": 28,
+      "usage": "standalone_public_case"
+    },
+    {
+      "case_label": "case29",
+      "attachment_url": "https://github.com/user-attachments/assets/42a88ef9-9328-4ffc-9134-9f29152af6a8",
+      "local_media": "media/case29.mp4",
+      "public_case": 4,
+      "usage": "merged_or_deduplicated_media"
+    }
+  ]
+}

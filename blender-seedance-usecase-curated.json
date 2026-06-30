@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-06-30T07:18:46Z",
+    "generated_at": "2026-06-30T08:34:14Z",
     "source": "data/primary-use-case-posts.json",
     "repo": "Awesome-Blender-Seedance-Workflow-Usecases",
     "selected_count": 25,
@@ -17,8 +17,9 @@
       "limitations": 3
     },
     "cta_status": "quick-start workflow published; final landing page still pending",
-    "publication_status": "local scaffold; push to cheercheung/Awesome-Blender-Seedance-Workflow-Usecases approved after local verification; no remote creation approved",
-    "audit": "docs/usecase-originality-audit.md"
+    "publication_status": "existing target repository; push to cheercheung/Awesome-Blender-Seedance-Workflow-Usecases approved after local verification; no new repository creation approved",
+    "audit": "docs/usecase-originality-audit.md",
+    "video_source_map": "data/usecase-video-sources.json"
   },
   "items": [
     {

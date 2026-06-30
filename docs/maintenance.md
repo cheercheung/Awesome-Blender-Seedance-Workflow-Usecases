@@ -5,16 +5,18 @@
 - Public curated source: `blender-seedance-usecase-curated.json`
 - Human-readable curated source: `blender-seedance-usecase-curated.md`
 - Owner-provided input: `data/primary-use-case-posts.json`
+- Owner-provided video source map: `data/usecase-video-sources.json`
 - Manual originality audit: `docs/usecase-originality-audit.md`
-- Downloaded public media: `media/case-XX/`
+- Downloaded public media: `media/caseN.mp4`
 
 ## Current State
 
 - Selected public cases: 25
+- Owner-provided video rows: 26
 - Candidate pool before audit: 35
 - Primary CTA: Quick Start workflow with Blender MCP, EvoLink skills, API key, and agent usage
-- Public push: not approved
-- GitHub repository creation: not approved; push target approved after local verification
+- Public push: approved to the existing target repository after local verification
+- GitHub repository creation: not approved and not needed for this repo
 
 ## Case Rules
 

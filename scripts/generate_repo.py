@@ -287,6 +287,35 @@ MEDIA_BY_SOURCE_INDEX = {
     31: ["media/case20.mp4"],
 }
 
+VIDEO_SOURCE_ROWS = [
+    ("case1", "https://github.com/user-attachments/assets/c56d8da8-6ebf-430b-b012-0a85e28c092b"),
+    ("case2", "https://github.com/user-attachments/assets/4bbd421d-dc83-4cae-927d-caa0f7aa143a"),
+    ("case3", "https://github.com/user-attachments/assets/987cf30d-de8b-4cf1-809a-5deaea8ceff0"),
+    ("case4", "https://github.com/user-attachments/assets/5b39d216-e84a-4372-83e6-a636bcf9d2fe"),
+    ("case5", "https://github.com/user-attachments/assets/a6304e6a-d431-4cf7-9dd2-f664594e34c5"),
+    ("case6", "https://github.com/user-attachments/assets/8f92ed66-1c9f-4fc1-885e-71240add8f56"),
+    ("case9", "https://github.com/user-attachments/assets/e92e6c44-3fef-4690-bce3-85de50ecf547"),
+    ("case10", "https://github.com/user-attachments/assets/cff81cc4-0f72-49d8-881f-aee6ded2d5cf"),
+    ("case11", "https://github.com/user-attachments/assets/247ccf17-4652-4c11-b8dc-efdba1567707"),
+    ("case13", "https://github.com/user-attachments/assets/2dabc892-946a-4879-9af0-0e21386b16a5"),
+    ("case14", "https://github.com/user-attachments/assets/3f04e458-a43f-4860-af2b-88eb6dd397cc"),
+    ("case15", "https://github.com/user-attachments/assets/e1df0f87-e93e-4339-b25a-a7ac4c4f8c4e"),
+    ("case16", "https://github.com/user-attachments/assets/80143b32-352b-4e86-8c1f-85826d940ba7"),
+    ("case17", "https://github.com/user-attachments/assets/13ba8e79-0b0a-44b9-be29-9c850bdeb95a"),
+    ("case18", "https://github.com/user-attachments/assets/bccdbf9a-b816-403f-ae1f-6e43b1e295a3"),
+    ("case19", "https://github.com/user-attachments/assets/222be6cc-82c7-4953-9abe-70618f6d499b"),
+    ("case20", "https://github.com/user-attachments/assets/dfa129d8-f06b-4018-a5bb-c1ed9e78d0d3"),
+    ("case21", "https://github.com/user-attachments/assets/a254edb3-245d-4bc0-87cc-45bd17e82b99"),
+    ("case22", "https://github.com/user-attachments/assets/e9c22c6f-690f-4b3b-984c-a18506580c38"),
+    ("case23", "https://github.com/user-attachments/assets/91721f79-eeaf-4309-bc4a-11e8136c6dba"),
+    ("case24", "https://github.com/user-attachments/assets/b6a3f37b-ef8c-46c1-ad53-a822797a7c09"),
+    ("case25", "https://github.com/user-attachments/assets/d333d2d0-8317-49f0-8815-86db783cb578"),
+    ("case26", "https://github.com/user-attachments/assets/e63c102e-11cf-4381-87fe-8cfe0d96702b"),
+    ("case27", "https://github.com/user-attachments/assets/71221c71-a7eb-428f-90e5-4a6111aaf890"),
+    ("case28", "https://github.com/user-attachments/assets/3ab561b2-ef3e-47a5-b2c4-8378a521e491"),
+    ("case29", "https://github.com/user-attachments/assets/42a88ef9-9328-4ffc-9134-9f29152af6a8"),
+]
+
 CATEGORY_FOR_CASE = {
     1: "camera-control",
     2: "camera-control",
@@ -1216,6 +1245,34 @@ def curated_records(items: list[dict]) -> list[dict]:
     return sorted(records, key=lambda record: record["case"])
 
 
+def video_source_records(records: list[dict]) -> list[dict]:
+    media_to_case = {}
+    for record in records:
+        for rel in record.get("local_media", []):
+            media_to_case[rel] = record["case"]
+    out = []
+    for label, attachment_url in VIDEO_SOURCE_ROWS:
+        case_number = int(label.removeprefix("case"))
+        local_media = f"media/{label}.mp4"
+        public_case = media_to_case.get(local_media)
+        if public_case == case_number:
+            usage = "standalone_public_case"
+        elif public_case is None:
+            usage = "downloaded_not_linked"
+        else:
+            usage = "merged_or_deduplicated_media"
+        out.append(
+            {
+                "case_label": label,
+                "attachment_url": attachment_url,
+                "local_media": local_media,
+                "public_case": public_case,
+                "usage": usage,
+            }
+        )
+    return out
+
+
 def render_badges(img_path: str) -> str:
     return f"""<div align="center">
 
@@ -1522,16 +1579,18 @@ def write_static_files(records: list[dict]) -> None:
             - Public curated source: `blender-seedance-usecase-curated.json`
             - Human-readable curated source: `blender-seedance-usecase-curated.md`
             - Owner-provided input: `data/primary-use-case-posts.json`
+            - Owner-provided video source map: `data/usecase-video-sources.json`
             - Manual originality audit: `docs/usecase-originality-audit.md`
-            - Downloaded public media: `media/case-XX/`
+            - Downloaded public media: `media/caseN.mp4`
 
             ## Current State
 
             - Selected public cases: {len(records)}
+            - Owner-provided video rows: {len(VIDEO_SOURCE_ROWS)}
             - Candidate pool before audit: 35
             - Primary CTA: Quick Start workflow with Blender MCP, EvoLink skills, API key, and agent usage
-            - Public push: not approved
-            - GitHub repository creation: not approved; push target approved after local verification
+            - Public push: approved to the existing target repository after local verification
+            - GitHub repository creation: not approved and not needed for this repo
 
             ## Case Rules
 
@@ -1597,6 +1656,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FILES = {[filename for _, filename, _, _ in LANGS]!r}
 EXPECTED_CASES = {len(records)}
 EXPECTED_IMAGES = {[img for _, _, _, img in LANGS]!r}
+EXPECTED_VIDEO_LABELS = {[label for label, _ in VIDEO_SOURCE_ROWS]!r}
 
 def fail(msg):
     raise SystemExit(f"FAIL: {{msg}}")
@@ -1631,9 +1691,24 @@ for img in EXPECTED_IMAGES:
     if not (ROOT / img).exists():
         fail(f"missing {{img}}")
 
-for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md"]:
+for required in ["LICENSE", "CONTRIBUTING.md", "docs/maintenance.md", ".github/PULL_REQUEST_TEMPLATE.md", "blender-seedance-usecase-curated.json", "blender-seedance-usecase-curated.md", "data/usecase-video-sources.json"]:
     if not (ROOT / required).exists():
         fail(f"missing {{required}}")
+
+video_sources = json.loads((ROOT / "data" / "usecase-video-sources.json").read_text())
+if video_sources["metadata"].get("source_rows") != len(EXPECTED_VIDEO_LABELS):
+    fail("video source row count does not match expected workbook rows")
+video_labels = [row["case_label"] for row in video_sources["items"]]
+if video_labels != EXPECTED_VIDEO_LABELS:
+    fail("video source labels do not match expected workbook order")
+if len(set(video_labels)) != len(video_labels):
+    fail("video source labels contain duplicates")
+for row in video_sources["items"]:
+    rel = row.get("local_media")
+    if not rel or not (ROOT / rel).exists():
+        fail(f"missing video source local media {{rel}}")
+    if not row.get("attachment_url", "").startswith("https://github.com/user-attachments/assets/"):
+        fail(f"unexpected attachment URL for {{row.get('case_label')}}")
 
 media_paths = []
 for item in curated["items"]:
@@ -1659,6 +1734,7 @@ def main() -> None:
     data = json.loads(SOURCE.read_text())
     items = data["items"]
     records = curated_records(items)
+    video_records = video_source_records(records)
     for _, _, lang_name, img in LANGS:
         write_banner(ROOT / img, lang_name)
     for lang, filename, _, img in LANGS:
@@ -1672,12 +1748,23 @@ def main() -> None:
             "tier_counts": dict(Counter(record["quality_tier"] for record in records)),
             "category_counts": dict(Counter(record["category"] for record in records)),
             "cta_status": "quick-start workflow published; final landing page still pending",
-            "publication_status": "local scaffold; push to cheercheung/Awesome-Blender-Seedance-Workflow-Usecases approved after local verification; no remote creation approved",
+            "publication_status": "existing target repository; push to cheercheung/Awesome-Blender-Seedance-Workflow-Usecases approved after local verification; no new repository creation approved",
             "audit": "docs/usecase-originality-audit.md",
+            "video_source_map": "data/usecase-video-sources.json",
         },
         "items": records,
     }
     (ROOT / "blender-seedance-usecase-curated.json").write_text(json.dumps(curated, ensure_ascii=False, indent=2) + "\n")
+    video_sources = {
+        "metadata": {
+            "generated_at": curated["metadata"]["generated_at"],
+            "source_workbook": "Book1.xlsx",
+            "source_rows": len(video_records),
+            "localization_policy": "README files use repository-local media URLs; attachment URLs are retained as owner-provided source mapping only.",
+        },
+        "items": video_records,
+    }
+    (ROOT / "data" / "usecase-video-sources.json").write_text(json.dumps(video_sources, ensure_ascii=False, indent=2) + "\n")
     (ROOT / "blender-seedance-usecase-curated.md").write_text(render_curated_md(records))
     write_static_files(records)
     write_verify_script(records)
