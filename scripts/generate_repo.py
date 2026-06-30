@@ -1581,6 +1581,7 @@ def write_static_files(records: list[dict]) -> None:
             - Owner-provided input: `data/primary-use-case-posts.json`
             - Owner-provided video source map: `data/usecase-video-sources.json`
             - Manual originality audit: `docs/usecase-originality-audit.md`
+            - GitHub About metadata proposal: `docs/github-about.md`
             - Downloaded public media: `media/caseN.mp4`
 
             ## Current State
@@ -1591,6 +1592,7 @@ def write_static_files(records: list[dict]) -> None:
             - Primary CTA: Quick Start workflow with Blender MCP, EvoLink skills, API key, and agent usage
             - Public push: approved to the existing target repository after local verification
             - GitHub repository creation: not approved and not needed for this repo
+            - GitHub About metadata: drafted in `docs/github-about.md`; applying it requires repository settings permission
 
             ## Case Rules
 
